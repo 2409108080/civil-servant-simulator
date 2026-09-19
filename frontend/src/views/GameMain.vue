@@ -11,7 +11,7 @@
       <div class="top-actions">
         <el-button class="gov-btn--ghost" @click="rulesVisible = true">规则</el-button>
         <el-button class="gov-btn--ghost" @click="aboutVisible = true">关于</el-button>
-        <el-button class="gov-btn--ghost" @click="onManualSave">手动存档</el-button>
+        <!-- <el-button class="gov-btn--ghost" @click="onManualSave">手动存档</el-button> -->
         <el-button class="gov-btn--outline" @click="onReset">重新开始</el-button>
       </div>
     </header>
@@ -658,13 +658,13 @@ export default {
       }
     },
 
-    onManualSave() {
-      const ok = this.saveGame()
-      toast(this, {
-        type: ok ? 'success' : 'error',
-        message: ok ? '已存档。' : '存档失败，本地存储不可用。'
-      })
-    },
+    // onManualSave() {
+    //   const ok = this.saveGame()
+    //   toast(this, {
+    //     type: ok ? 'success' : 'error',
+    //     message: ok ? '已存档。' : '存档失败，本地存储不可用。'
+    //   })
+    // },
 
     /**
      * 清档并回到报到页。
