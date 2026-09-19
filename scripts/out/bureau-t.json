@@ -1,0 +1,287 @@
+[
+  {
+    "id": "evt_bureau_t_special_fund_split",
+    "title": "专项资金切块",
+    "npcName": "市财政局长 老罗",
+    "unitType": "常规局委",
+    "bands": [
+      "厅级"
+    ],
+    "theme": "daily",
+    "description": "六个市的专项资金分配方案摆在桌上，其中两亿的现代产业引导资金，你手上这版是按申报质量排的。晚饭前，你大学同窗、某市财政局长老罗打来电话，说他们市书记明天要来汇报，希望那个排名「再斟酌斟酌」。处里随后送来的第二版方案里，他们已经进了前三。窗外省府大楼的灯还亮着，方案明天上会。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "退回去，仍按专家评分排序",
+        "costAp": 1,
+        "effects": {
+          "authority": 10,
+          "ability": 5,
+          "mgmt": -8,
+          "popularity": -8,
+          "energy": -6
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "我不表态，让处里再完善一版",
+        "costAp": 0,
+        "effects": {
+          "mgmt": -3,
+          "ability": -3,
+          "popularity": -2,
+          "energy": -4
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "给老罗打个招呼，提两位",
+        "costAp": 2,
+        "effects": {
+          "mgmt": 8,
+          "popularity": 6,
+          "kpi": 5,
+          "risk": 18,
+          "energy": -10
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_bureau_t_joint_document_stall",
+    "title": "会签文件卡住了",
+    "npcName": "协作厅处长 老周",
+    "unitType": "常规局委",
+    "bands": [
+      "厅级"
+    ],
+    "theme": "daily",
+    "description": "一份关于政务数据共享的联合发文，会签单在你桌上压了九天。协作厅的处长每次都客气，说「正在走流程」，可你心里清楚，他们是怕数据口子一开，责任落到自己头上。下月全省推进会要用这份文件，分管副省长已经问过两次。今晚老周约了饭，说是叙叙旧。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "饭照吃，字照催，不越界",
+        "costAp": 1,
+        "effects": {
+          "popularity": 5,
+          "mgmt": 5,
+          "energy": -8,
+          "risk": 6
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "请分管副省长出面协调",
+        "costAp": 2,
+        "effects": {
+          "mgmt": 10,
+          "kpi": 8,
+          "popularity": -8,
+          "risk": 5,
+          "energy": -8
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "先放一放，等对方主动",
+        "costAp": 0,
+        "effects": {
+          "energy": -2,
+          "mgmt": -5,
+          "kpi": -4,
+          "popularity": -3
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_bureau_t_hall_expose_video",
+    "title": "大厅视频上了热搜",
+    "npcName": "某市副局长 老秦",
+    "unitType": "常规局委",
+    "bands": [
+      "厅级"
+    ],
+    "theme": "daily",
+    "description": "某市政务大厅一段视频传开了：老人跑了三趟，窗口之间来回推。播放量已经过百万。宣传处问要不要主动回应，网信那边说再观察观察，别自己点火。你分管这条线，厅里年度考核里正好有政务服务满意度这一项。手机里，那个市的局长已经连发三条微信，说「是我们的问题，请厅里给个口径」。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "当天派工作组下去，公开回应",
+        "costAp": 2,
+        "effects": {
+          "authority": 8,
+          "ability": 6,
+          "kpi": 5,
+          "energy": -15,
+          "risk": 5
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "让市里自查，报个情况上来",
+        "costAp": 1,
+        "effects": {
+          "mgmt": 4,
+          "popularity": 3,
+          "energy": -6,
+          "risk": 10
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "先不表态，等热度自己下去",
+        "costAp": 0,
+        "effects": {
+          "risk": 12,
+          "mgmt": -4,
+          "popularity": -3,
+          "kpi": -3
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_bureau_t_approval_signature",
+    "title": "这个字签不签",
+    "npcName": "企业老板 老陈",
+    "unitType": "常规局委",
+    "bands": [
+      "厅级"
+    ],
+    "theme": "daily",
+    "description": "一家企业的生产资质审批卡在最后一道：环评的补充材料没补齐。老板老陈是外地来的投资商，市里为了这个项目，两位副市长都出过面。交办单上写着「请予支持」。处长把材料放到你面前，说实质条件都够了，就差个形式。按程序，这份材料缺一不可；按人情，全省都在拼招商。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "材料补齐再签，一个不落",
+        "costAp": 1,
+        "effects": {
+          "authority": 10,
+          "ability": 5,
+          "mgmt": -8,
+          "popularity": -8,
+          "energy": -6
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "先签，限期补交",
+        "costAp": 2,
+        "effects": {
+          "kpi": 10,
+          "mgmt": 8,
+          "popularity": 5,
+          "risk": 20,
+          "energy": -8
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "让处里再核一遍，我不签也不退",
+        "costAp": 0,
+        "effects": {
+          "mgmt": -5,
+          "kpi": -3,
+          "ability": -3,
+          "energy": -3
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_bureau_t_inspection_legacy",
+    "title": "巡视整改里的旧账",
+    "npcName": "巡视联络员 老韩",
+    "unitType": "常规局委",
+    "bands": [
+      "厅级"
+    ],
+    "theme": "daily",
+    "description": "巡视反馈的问题清单里有一条：三年前的一笔培训经费，去向说得不清楚，当时是前任签的字。整改方案明天要报。联络员老韩提醒你，写「制度不健全、已完善」，材料上过得去；写「资金去向不明、移交核查」，那就是另一回事了。前任如今在省里还有位置，逢年过节还通电话。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "如实写，移交核查",
+        "costAp": 2,
+        "effects": {
+          "authority": 12,
+          "risk": -10,
+          "popularity": -12,
+          "mgmt": -8,
+          "energy": -10
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "按制度不健全的表述上报",
+        "costAp": 1,
+        "effects": {
+          "mgmt": 6,
+          "popularity": 6,
+          "risk": 12,
+          "energy": -6
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "先搁一搁，等初稿汇总再说",
+        "costAp": 0,
+        "effects": {
+          "mgmt": -4,
+          "kpi": -3,
+          "popularity": -2,
+          "risk": 8,
+          "energy": -3
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_bureau_t_data_water",
+    "title": "报上来的数字",
+    "npcName": "统计处长 老吴",
+    "unitType": "常规局委",
+    "bands": [
+      "厅级"
+    ],
+    "theme": "daily",
+    "description": "全省年度指标汇总出来了，各市报的增速加总，比厅里监测的口径高出不少。统计处长说，惯例是「对标对表」，把口径调一调，报上去好看，省里考核市里，市里也考核我们。可今年是数据质量核查年，上个月刚开过会，强调不得层层注水。材料明天要报省府。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "要求各市核减重报",
+        "costAp": 2,
+        "effects": {
+          "authority": 10,
+          "ability": 8,
+          "kpi": -10,
+          "popularity": -12,
+          "energy": -12
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "按惯例调口径上报",
+        "costAp": 1,
+        "effects": {
+          "kpi": 10,
+          "mgmt": 8,
+          "risk": 18,
+          "energy": -6
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "按原数据报，附个说明",
+        "costAp": 0,
+        "effects": {
+          "kpi": -5,
+          "mgmt": -5,
+          "popularity": -3,
+          "energy": -3
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,281 @@
+[
+  {
+    "id": "evt_town_t_flood_night_call",
+    "title": "半夜险情电话",
+    "npcName": "镇长 老赵",
+    "unitType": "基层乡镇",
+    "bands": [
+      "厅级"
+    ],
+    "theme": "daily",
+    "description": "夜里十一点，你联系的乡镇打来电话。上游水库泄洪，镇里那条河的水位离警戒线只差三十公分，河边两个村还有六百多人没转移。老赵在电话里说，转移一次要动用几十号人、安置点、车辆，万一水位回落到不了警戒线，镇上白折腾，群众也有怨气；可要是硬扛，出了事谁也担不起。他顿了顿，问你，是不是按预案先转移——意思很明白，这个决心得你替他下。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "按预案，今晚就转",
+        "costAp": 1,
+        "effects": {
+          "energy": -15,
+          "health": -10,
+          "popularity": 8,
+          "kpi": 5,
+          "authority": 6
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "再等等，盯紧水情",
+        "costAp": 0,
+        "effects": {
+          "risk": 12,
+          "kpi": -4,
+          "popularity": -5,
+          "authority": -4,
+          "energy": 5
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "让县里报市防指定",
+        "costAp": 1,
+        "effects": {
+          "mgmt": 5,
+          "authority": -8,
+          "kpi": -4,
+          "energy": -6
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_town_t_inspection_sewage",
+    "title": "暗访拍到的排污口",
+    "npcName": "乡党委书记 老陈",
+    "unitType": "基层乡镇",
+    "bands": [
+      "厅级"
+    ],
+    "theme": "daily",
+    "description": "省环保督察组暗访，在镇东河段拍到一个排污口，水面浮着一层白沫。照片当晚转到市里，还没正式交办。老陈带着人找到你，说那根管是老企业的历史遗留，真要如实上报，镇里这几年的治理成绩就全白干了；先停下来整改三个月，等督察组再来看，也就说得过去。他把整改方案放在桌上，最后一页空着，等你一句话：报，还是不报。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "如实报，方案同步上",
+        "costAp": 1,
+        "effects": {
+          "authority": 8,
+          "mgmt": -6,
+          "kpi": -5,
+          "energy": -8
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "先整改，暂不上报",
+        "costAp": 2,
+        "effects": {
+          "kpi": 6,
+          "risk": 12,
+          "mgmt": 4,
+          "energy": -10
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "交县里按程序走",
+        "costAp": 0,
+        "effects": {
+          "authority": -6,
+          "kpi": -4,
+          "risk": 9,
+          "energy": 5
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_town_t_petition_sit_in",
+    "title": "门口坐着的老上访户",
+    "npcName": "信访局长 老吴",
+    "unitType": "基层乡镇",
+    "bands": [
+      "厅级"
+    ],
+    "theme": "daily",
+    "description": "你去镇里调研，车刚进院，台阶上坐着一个人，七十多岁，是镇上跑得最久的老上访户，为二十年前征地补偿的事奔走了十几年。信访局长老吴提前下车，把你往侧门引，说今天有记者跟着，正面碰上不好看；又低声讲，老人的事其实按政策能解决，差的是一笔五万八的补偿款，只是谁签字谁担责，县里镇里推了三年。他说，要不您先听听。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "过去，坐到台阶上听",
+        "costAp": 1,
+        "effects": {
+          "popularity": 10,
+          "authority": 6,
+          "mgmt": -5,
+          "energy": -8
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "走侧门，让镇里接访",
+        "costAp": 0,
+        "effects": {
+          "authority": -6,
+          "popularity": -8,
+          "energy": 5,
+          "kpi": -3
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "五万八，签字解决",
+        "costAp": 2,
+        "effects": {
+          "kpi": 5,
+          "popularity": 8,
+          "risk": 10,
+          "authority": -5,
+          "energy": -8
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_town_t_land_for_plant",
+    "title": "项目落地的最后一道坎",
+    "npcName": "常务副县长 老韩",
+    "unitType": "基层乡镇",
+    "bands": [
+      "厅级"
+    ],
+    "theme": "daily",
+    "description": "一个投资三亿的项目要落在镇上，市里催着年底前开工。选中的地块上还有三十几户没签协议，其中六户在闹，说补偿标准低。老韩带你去村里看现场，指着那片地说，只要把标准从每亩四万二提到五万，明天就能清表；钱由镇里账户先垫，后面再想办法走账。他话说得客气，这个口径只有您能定。村口已经站了二十来号人。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "按原标准，逐户再谈",
+        "costAp": 1,
+        "effects": {
+          "authority": 7,
+          "kpi": -6,
+          "energy": -10,
+          "health": -5
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "提到五万，先垫后走账",
+        "costAp": 2,
+        "effects": {
+          "kpi": 10,
+          "mgmt": 6,
+          "risk": 15,
+          "energy": -8
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "先放一放，等过了年",
+        "costAp": 0,
+        "effects": {
+          "kpi": -6,
+          "mgmt": -5,
+          "authority": -4,
+          "energy": 5
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_town_t_safety_smoke",
+    "title": "镇上一场火",
+    "npcName": "镇长 老李",
+    "unitType": "基层乡镇",
+    "bands": [
+      "厅级"
+    ],
+    "theme": "daily",
+    "description": "镇上一个小加工点凌晨起火，烧了两间厂房，一死两伤。消防初步判定是线路老化。市里口径还没定，应急局、宣传部、镇里都在等你的意见。有人提醒：这家加工点去年被镇上查过一次，责令整改的文书还压在卷里，要是把这层说出来，先追的就是镇里的监管责任；只按意外上报，死者家属那边，赔偿还得一家一家谈。你站在焦黑的厂房门口，记者已经到了。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "如实上报，责任一并报",
+        "costAp": 1,
+        "effects": {
+          "authority": 8,
+          "mgmt": -7,
+          "kpi": -6,
+          "energy": -10
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "先按意外报，家属谈妥",
+        "costAp": 2,
+        "effects": {
+          "mgmt": 5,
+          "kpi": 4,
+          "risk": 14,
+          "energy": -8
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "统一由市里定口径",
+        "costAp": 0,
+        "effects": {
+          "mgmt": 4,
+          "kpi": -5,
+          "risk": 9,
+          "energy": 5
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_town_t_year_end_tally",
+    "title": "示范镇的那本台账",
+    "npcName": "副镇长 小黄",
+    "unitType": "基层乡镇",
+    "bands": [
+      "厅级"
+    ],
+    "theme": "daily",
+    "description": "你在联系点蹲了三天。镇上要报乡村振兴示范镇的年度台账，人均收入那一栏填的是两万一千，你在村里问了三户，实际都在一万四五。副镇长小黄解释，周边几个镇都这么报，报低了市里排名靠后，明年的项目就轮不到；再说指标是上面压下来的，镇里也难。他把台账摊开，笔递过来，您是联系领导，签个字就报上去了。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "退回去，按实际报",
+        "costAp": 1,
+        "effects": {
+          "authority": 8,
+          "kpi": -8,
+          "mgmt": -5,
+          "energy": -8
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "签字报上去",
+        "costAp": 1,
+        "effects": {
+          "mgmt": 6,
+          "kpi": 8,
+          "risk": 12,
+          "energy": -5
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "数字不动，附个说明",
+        "costAp": 0,
+        "effects": {
+          "kpi": 5,
+          "mgmt": 4,
+          "risk": 9,
+          "energy": -5
+        }
+      }
+    ]
+  }
+]

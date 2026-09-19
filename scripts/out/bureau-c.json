@@ -1,0 +1,235 @@
+[
+  {
+    "id": "evt_bureau_c_fund_request",
+    "title": "专项资金的招呼",
+    "npcName": "分管副县长 老韩",
+    "unitType": "常规局委",
+    "bands": [
+      "处级"
+    ],
+    "theme": "daily",
+    "description": "一笔三百万的专项资金只剩最后两个名额，分管副县长把你叫到办公室，说某镇的产业项目「原则上可以支持一下」，那个镇的书记是他老同学。财政评审的意见是该项目材料不全。你手里那张表，今晚必须报上去。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "按评审意见报，材料补齐再说",
+        "costAp": 1,
+        "effects": {
+          "authority": 6,
+          "ability": 4,
+          "mgmt": -8,
+          "energy": -5
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "给老韩面子，调剂一个名额",
+        "costAp": 1,
+        "effects": {
+          "mgmt": 8,
+          "kpi": 5,
+          "risk": 14,
+          "authority": -5
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "先把材料退回去，让镇里补",
+        "costAp": 0,
+        "effects": {
+          "ability": 2,
+          "popularity": -4,
+          "kpi": -2,
+          "risk": 6,
+          "energy": -5
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_bureau_c_hall_surveillance",
+    "title": "大厅里的暗访",
+    "npcName": "大厅主任 老陈",
+    "unitType": "常规局委",
+    "bands": [
+      "处级"
+    ],
+    "theme": "daily",
+    "description": "办事大厅的视频在网上传开，一个老人跑了三趟没办成事，窗口的年轻人说话冲了。市里的暗访通报明天下发，分管领导的意思是把口径统一到「系统故障」，再让窗口写份检查。你手上还有一份群众的实名投诉。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "如实上报，窗口停职整改",
+        "costAp": 1,
+        "effects": {
+          "authority": 6,
+          "ability": 4,
+          "mgmt": -10,
+          "kpi": -4
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "按统一口径压下去，内部处理",
+        "costAp": 1,
+        "effects": {
+          "mgmt": 8,
+          "popularity": 3,
+          "risk": 14,
+          "authority": -6
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "先登门道歉，通报的事等一等",
+        "costAp": 0,
+        "effects": {
+          "ability": 2,
+          "popularity": -2,
+          "kpi": -3,
+          "energy": -8,
+          "risk": 7
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_bureau_c_school_seat_note",
+    "title": "一张条子",
+    "npcName": "局办主任 小郑",
+    "unitType": "常规局委",
+    "bands": [
+      "处级"
+    ],
+    "theme": "daily",
+    "description": "开学前三天，重点小学的空余学位只剩十一个，你桌上压着七张条子，其中一张是某位领导秘书送来的，孩子户口不在片区内。校长说他那边真的塞不下了，家长已经在门口排队登记，有人把手机举起来录像。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "按片区政策一刀切，条子全退",
+        "costAp": 1,
+        "effects": {
+          "authority": 8,
+          "ability": 5,
+          "mgmt": -12,
+          "popularity": -6
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "留个机动名额，把最上面那张办了",
+        "costAp": 2,
+        "effects": {
+          "mgmt": 10,
+          "kpi": 3,
+          "risk": 16,
+          "authority": -8,
+          "popularity": -4
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "公开摇号，谁也别再找",
+        "costAp": 0,
+        "effects": {
+          "popularity": 4,
+          "mgmt": -5,
+          "kpi": -2,
+          "energy": -8,
+          "risk": 5
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_bureau_c_year_end_data",
+    "title": "年末那张表",
+    "npcName": "统计科长 老吴",
+    "unitType": "常规局委",
+    "bands": [
+      "处级"
+    ],
+    "theme": "daily",
+    "description": "市里要求报今年的指标完成数，你手里的实际数字差两个百分点到考核线上。统计科长把改过的表放在你桌上，说可以对标去年口径，注一句「含预计」，历年都是这么报的。明天上午报送，市局那边已经打过电话催。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "按实际数报，考评分低就低",
+        "costAp": 1,
+        "effects": {
+          "authority": 7,
+          "ability": 5,
+          "mgmt": -12,
+          "kpi": -8
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "按对表口径报，注明预计",
+        "costAp": 1,
+        "effects": {
+          "kpi": 8,
+          "mgmt": 8,
+          "risk": 16,
+          "authority": -5
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "先报初步数，正式数下周补",
+        "costAp": 0,
+        "effects": {
+          "mgmt": -3,
+          "popularity": -3,
+          "energy": -5,
+          "risk": 9
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_bureau_c_subordinate_case",
+    "title": "老部下的一顿饭",
+    "npcName": "纪检组长 老孙",
+    "unitType": "常规局委",
+    "bands": [
+      "处级"
+    ],
+    "theme": "daily",
+    "description": "有人反映你手下一个科长在某项目验收前，和承包方一起吃了饭，还收了张两千的卡。纪检组长把线索摆到你面前，说可以作谈话提醒，也可以按程序上报。这个科长跟你干了八年，去年他父亲住院还找你借过钱。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "按程序上报，谁也别打招呼",
+        "costAp": 1,
+        "effects": {
+          "authority": 8,
+          "ability": 4,
+          "risk": -6,
+          "popularity": -8
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "谈话提醒，把卡退了就算了结",
+        "costAp": 1,
+        "effects": {
+          "popularity": 6,
+          "mgmt": 3,
+          "risk": 14,
+          "authority": -8
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "这个事先放一放，再了解了解",
+        "costAp": 0,
+        "effects": {
+          "energy": -5,
+          "mgmt": -2,
+          "risk": 12
+        }
+      }
+    ]
+  }
+]

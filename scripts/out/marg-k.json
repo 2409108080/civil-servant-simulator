@@ -1,0 +1,135 @@
+[
+  {
+    "id": "evt_marg_k_water_cooler_broke",
+    "title": "饮水机坏了三天",
+    "npcName": "办公室主任 老陈",
+    "unitType": "边缘部门",
+    "bands": [
+      "科级"
+    ],
+    "theme": "daily",
+    "description": "四楼那台饮水机坏了三天，没人来修。老陈拿着采购单上来，说走政府采购程序，快则一个月，慢则过了年。可这几层楼的人都端着杯子来你们这儿接水，话里话外都是抱怨。老陈压低声音：要不我先去楼下商场买一台，几百块钱，回头寻个名目报了，你懂的。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "按程序报，等采购走完",
+        "costAp": 1,
+        "effects": {
+          "ability": 5,
+          "popularity": -5,
+          "energy": -5,
+          "mgmt": -2
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "先垫钱买，回头再想办法",
+        "costAp": 1,
+        "effects": {
+          "popularity": 6,
+          "energy": -6,
+          "risk": 10
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "这个事先放一放",
+        "costAp": 0,
+        "effects": {
+          "popularity": -5,
+          "authority": -2,
+          "energy": 3
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_marg_k_choir_practice",
+    "title": "合唱比赛要凑人数",
+    "npcName": "党办副主任 老周",
+    "unitType": "边缘部门",
+    "bands": [
+      "科级"
+    ],
+    "theme": "daily",
+    "description": "系统里办庆祝活动，各单位组队合唱，人数不够的在通报里点名。老周来商量：你们在编十几个人，能开口的就五个。要么从下属单位借几个，要么把退休的老同志请回来，排练占的是下午。日常那些事，只能你自己加班补。老周说，这事得顾全大局。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "从下属单位借人凑齐",
+        "costAp": 1,
+        "effects": {
+          "kpi": 6,
+          "popularity": -4,
+          "risk": 5,
+          "energy": -4
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "如实报名，就这五个人上",
+        "costAp": 1,
+        "effects": {
+          "authority": 5,
+          "ability": 3,
+          "kpi": -8,
+          "mgmt": -5
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "这个事先放一放",
+        "costAp": 0,
+        "effects": {
+          "kpi": -7,
+          "popularity": 3,
+          "energy": 3
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_marg_k_yearbook_deadline",
+    "title": "年鉴稿子还差一半",
+    "npcName": "史志办编辑 小郑",
+    "unitType": "边缘部门",
+    "bands": [
+      "科级"
+    ],
+    "theme": "daily",
+    "description": "年鉴下厂印刷就剩十天，八个单位还没交稿。小郑说，那几个单位年年拖，要不他从往年的本子和网上补一补，凑够字数先印出来，反正没人逐字看。领导说这是「一把手工程」，年底要交账。真打电话硬催，得罪的是平级的兄弟单位；不催，这书就出不来。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "挨个打电话催，催不动就通报",
+        "costAp": 2,
+        "effects": {
+          "authority": 5,
+          "ability": 4,
+          "popularity": -8,
+          "energy": -8
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "让小郑先补上，回头再补正",
+        "costAp": 1,
+        "effects": {
+          "kpi": 6,
+          "risk": 10,
+          "energy": -4
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "如实报进度，缺的留白",
+        "costAp": 0,
+        "effects": {
+          "kpi": -6,
+          "mgmt": -5,
+          "energy": 3
+        }
+      }
+    ]
+  }
+]

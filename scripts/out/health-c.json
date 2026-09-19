@@ -1,0 +1,96 @@
+[
+  {
+    "id": "evt_common_c_checkup_red_flags",
+    "title": "体检单上的红字",
+    "npcName": "干部保健科 老吴",
+    "unitType": "通用",
+    "bands": [
+      "处级"
+    ],
+    "theme": "health",
+    "description": "年度体检报告送到办公室，干部保健科的老吴把你单独叫到一边：转氨酶是正常值的三倍，心电图也有缺血迹象，他的原话是「建议立刻住院，别拖成大事」。可下周省考核组就要进驻，你分管的这条线是必查项，汇报材料还没定稿，几个数据刚跟统计口对完。老吴把住院单推过来，说床位可以先留着，你自己拿主意。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "今天就办住院，工作先交副手",
+        "costAp": 2,
+        "effects": {
+          "health": 15,
+          "kpi": -8,
+          "mgmt": -5,
+          "authority": -3
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "开点药扛着，晚上回医院输液",
+        "costAp": 1,
+        "effects": {
+          "health": -12,
+          "kpi": 7,
+          "mgmt": 4,
+          "energy": -10
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "让老吴把复查推到考核之后",
+        "costAp": 0,
+        "effects": {
+          "risk": 12,
+          "health": -12,
+          "kpi": 4,
+          "mgmt": 2
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_common_c_ward_transfer_talk",
+    "title": "病房里的调岗话",
+    "npcName": "妻子",
+    "unitType": "通用",
+    "bands": [
+      "处级"
+    ],
+    "theme": "health",
+    "description": "住院第三天，妻子趁查房间隙把门带上，说她已经托了退休的老领导，想把你从眼下这条线上挪到政协去，级别不动，「组织上会考虑的」。她说这条线上半年出了两回事，再干下去人先垮了。下午老领导果然来了，坐在床边问你有没有什么想法。你手上还压着一份没签的整改方案，考核组下周还要回头看。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "顺水推舟，请老领导帮忙说说话",
+        "costAp": 2,
+        "effects": {
+          "health": 12,
+          "popularity": 4,
+          "kpi": -8,
+          "authority": -6,
+          "risk": 6
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "当面谢绝，请老领导别管这事",
+        "costAp": 1,
+        "effects": {
+          "authority": 6,
+          "kpi": 5,
+          "health": -10,
+          "popularity": -6,
+          "energy": -8
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "岔开话头，说等出院再议",
+        "costAp": 0,
+        "effects": {
+          "health": -5,
+          "authority": -4,
+          "popularity": -3,
+          "kpi": -3
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,234 @@
+[
+  {
+    "id": "evt_bureau_s_special_fund_split",
+    "title": "十亿专项怎么切",
+    "npcName": "财政厅副厅长 老郑",
+    "unitType": "常规局委",
+    "bands": [
+      "省部级"
+    ],
+    "theme": "daily",
+    "description": "省财政厅把今年的产业专项转移支付方案报到你桌上，盘子十个亿。两个市同时打了报告：一个市是省里定了要重点扶持的，另一个市的分管副市长托人打过招呼。方案上写着「按因素法测算，统筹兼顾」，老郑说，原则上可以按因素法走，也可以灵活把握。你签，还是不签。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "按因素法签，谁打招呼也没用",
+        "costAp": 1,
+        "effects": {
+          "authority": 10,
+          "ability": 6,
+          "popularity": -12,
+          "kpi": -4
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "重点市倾斜，另一市协调一下",
+        "costAp": 2,
+        "effects": {
+          "kpi": 12,
+          "mgmt": 8,
+          "risk": 14,
+          "popularity": -6
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "先放一放，让厅里再核一遍数",
+        "costAp": 0,
+        "effects": {
+          "energy": -5,
+          "kpi": -6,
+          "mgmt": -5,
+          "risk": 2
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_bureau_s_two_bureaus_shirk",
+    "title": "两个厅都不认账",
+    "npcName": "省政府副秘书长 老吴",
+    "unitType": "常规局委",
+    "bands": [
+      "省部级"
+    ],
+    "theme": "daily",
+    "description": "一件群众反映了七八年的事，卡在两个厅的职责边界上，谁也不肯认领。协调会开了三次，两次的结论都是「再研究」。今天省政府副秘书长老吴又把两家叫来，会议室里的人都看着你。事情本身不难，难的是签下这个字，就等于认下一份责任。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "当场定一家主办，写进会议纪要",
+        "costAp": 2,
+        "effects": {
+          "authority": 12,
+          "ability": 6,
+          "kpi": 5,
+          "popularity": -12
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "两家组专班共办，先干起来再说",
+        "costAp": 1,
+        "effects": {
+          "popularity": 6,
+          "mgmt": 5,
+          "kpi": -5,
+          "energy": -10
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "报常务会，请主要领导来定",
+        "costAp": 0,
+        "effects": {
+          "mgmt": -6,
+          "kpi": -5,
+          "energy": -5,
+          "popularity": 3
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_bureau_s_window_meltdown",
+    "title": "窗口视频上了热搜",
+    "npcName": "省局信访处长 老田",
+    "unitType": "常规局委",
+    "bands": [
+      "省部级"
+    ],
+    "theme": "daily",
+    "description": "一段某市政务大厅的视频在网上传开，办一个证要跑四个窗口，群众在镜头前说了句「你们省里就这水平」。网信办要求两小时内给出回应口径。老田说，业务系统确实是省局这边的，可窗口上的人是市里管的。评论区已经几十万条了。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "连夜全省排查，明天开发布会",
+        "costAp": 2,
+        "effects": {
+          "popularity": 12,
+          "kpi": 6,
+          "ability": 5,
+          "energy": -18,
+          "health": -10
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "就个案回应，压实市里整改",
+        "costAp": 1,
+        "effects": {
+          "mgmt": 6,
+          "kpi": 4,
+          "risk": 8,
+          "popularity": -8
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "按程序办，等舆情自己消退",
+        "costAp": 0,
+        "effects": {
+          "risk": 12,
+          "popularity": -10,
+          "kpi": -6,
+          "mgmt": -4
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_bureau_s_inflated_report",
+    "title": "报表上的数字",
+    "npcName": "省局统计处长 老袁",
+    "unitType": "常规局委",
+    "bands": [
+      "省部级"
+    ],
+    "theme": "daily",
+    "description": "半年报要汇总上报，几个市的数字明显高于同期的用电量和税收增幅。厅里解释说「口径就这样，历年如此」，省里正准备拿这套数往上汇报。你签了，数字好看；你核了，全省盘子往下掉一截，还得罪一串人。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "退回重核，宁可难看也不带水分",
+        "costAp": 2,
+        "effects": {
+          "ability": 10,
+          "authority": 8,
+          "kpi": -12,
+          "popularity": -10
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "照签，附个说明，留痕",
+        "costAp": 1,
+        "effects": {
+          "kpi": 12,
+          "mgmt": 8,
+          "risk": 14,
+          "energy": -6
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "让厅里再核，你先不表态",
+        "costAp": 0,
+        "effects": {
+          "kpi": -5,
+          "mgmt": -6,
+          "energy": -4,
+          "risk": 4
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_bureau_s_inspection_rectify",
+    "title": "巡视反馈的整改台账",
+    "npcName": "省厅纪检组长 老方",
+    "unitType": "常规局委",
+    "bands": [
+      "省部级"
+    ],
+    "theme": "daily",
+    "description": "巡视组反馈了一条：某项审批「重前置、轻事后」，点到了你分管的两个厅。整改台账三天后要报。两条路：一是追责到具体处室和个人，通报全省；二是写「建章立制、长期坚持」，先把台账交上去。老方说，怎么定，你拿主意。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "追责到人，全省通报，不留余地",
+        "costAp": 2,
+        "effects": {
+          "authority": 12,
+          "ability": 6,
+          "kpi": 5,
+          "popularity": -15,
+          "energy": -8
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "建章立制把制度补上，人不动",
+        "costAp": 1,
+        "effects": {
+          "mgmt": 6,
+          "popularity": 5,
+          "kpi": -4,
+          "risk": 8
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "台账先写正在整改，分期消化",
+        "costAp": 0,
+        "effects": {
+          "risk": 12,
+          "kpi": -6,
+          "mgmt": -5,
+          "popularity": -3
+        }
+      }
+    ]
+  }
+]

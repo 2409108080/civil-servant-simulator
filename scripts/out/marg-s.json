@@ -1,0 +1,232 @@
+[
+  {
+    "id": "evt_marg_s_science_funding",
+    "title": "科普经费怎么分",
+    "npcName": "省科协副主席老马",
+    "unitType": "边缘部门",
+    "bands": [
+      "省部级"
+    ],
+    "theme": "daily",
+    "description": "你分管省科协。一笔年度科普专项经费要下拨，某市科协打报告申请追加，理由是要办「一把手工程」式的科技节。但你知道该市去年刚因违规搞活动被通报。老马说该市领导打过招呼，建议「协调一下」。经费盘子就那么大，给了它，其他市就得压缩。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "按申报程序评审，不打招呼",
+        "costAp": 1,
+        "effects": {
+          "authority": 6,
+          "ability": 5,
+          "popularity": -10,
+          "mgmt": -5
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "给该市追加，卖个人情",
+        "costAp": 2,
+        "effects": {
+          "mgmt": 8,
+          "popularity": 6,
+          "risk": 15,
+          "kpi": -5
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "暂缓下拨，等领导定",
+        "costAp": 0,
+        "effects": {
+          "risk": 8,
+          "mgmt": -3,
+          "kpi": -5,
+          "popularity": -3
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_marg_s_chronicle_revise",
+    "title": "地方志里的数字",
+    "npcName": "史志办老主任老陈",
+    "unitType": "边缘部门",
+    "bands": [
+      "省部级"
+    ],
+    "theme": "daily",
+    "description": "省史志办正在编纂新一辑地方志。某市送来修订稿，把上世纪某次重大灾害的死亡人数改小了，理由是要「顾全大局，避免引发不必要的联想」。老陈说该市领导是省委常委，亲自过问。志书是要存史的，但你也得考虑现实。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "坚持原稿，按史实记载",
+        "costAp": 1,
+        "effects": {
+          "authority": 10,
+          "ability": 6,
+          "popularity": -12,
+          "mgmt": -8
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "同意修改，留个说明",
+        "costAp": 2,
+        "effects": {
+          "mgmt": 8,
+          "popularity": 5,
+          "risk": 12,
+          "authority": -8
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "搁置争议，先印其他部分",
+        "costAp": 0,
+        "effects": {
+          "risk": 8,
+          "kpi": -5,
+          "ability": -3,
+          "mgmt": -3
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_marg_s_academician_recommend",
+    "title": "院士推荐名单",
+    "npcName": "院士候选人周教授",
+    "unitType": "边缘部门",
+    "bands": [
+      "省部级"
+    ],
+    "theme": "daily",
+    "description": "省科协负责组织院士候选人推荐。周教授是某高校的资深学者，学术一般，但活动能力强，上面有人打过招呼。评审会上，有评委提出「要综合考虑省里的面子」。你手里有投票权，也有一票否决权。选他，省里能多一个院士名额；不选，得罪人。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "按学术标准投票，不选",
+        "costAp": 1,
+        "effects": {
+          "authority": 8,
+          "ability": 5,
+          "popularity": -12,
+          "mgmt": -6
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "投赞成票，给省里争名额",
+        "costAp": 2,
+        "effects": {
+          "mgmt": 10,
+          "kpi": 8,
+          "risk": 15,
+          "authority": -10
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "弃权，不表态",
+        "costAp": 0,
+        "effects": {
+          "risk": 8,
+          "popularity": -5,
+          "ability": -3,
+          "mgmt": -3
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_marg_s_archive_purchase",
+    "title": "档案采购的招呼",
+    "npcName": "老部下赵经理",
+    "unitType": "边缘部门",
+    "bands": [
+      "省部级"
+    ],
+    "theme": "daily",
+    "description": "省档案馆要采购一批档案数字化扫描设备。你兼任馆长，虽然不直接管采购，但老部下赵经理找到你，说他的公司想参与投标，希望「打个招呼」，并暗示「你懂的」。采购金额不大，关注度也不高，但一旦出事就是你的责任。你签不签这个条子？",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "不打招呼，让他按程序投标",
+        "costAp": 1,
+        "effects": {
+          "authority": 6,
+          "ability": 4,
+          "popularity": -10,
+          "risk": -5
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "给采购办打个电话，协调一下",
+        "costAp": 2,
+        "effects": {
+          "mgmt": 5,
+          "popularity": 8,
+          "risk": 18,
+          "authority": -10
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "推说不管具体事，让他找别人",
+        "costAp": 0,
+        "effects": {
+          "risk": 8,
+          "popularity": -5,
+          "mgmt": -3,
+          "ability": -2
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_marg_s_retiree_checkup",
+    "title": "老干部体检名额",
+    "npcName": "退休老领导钱老",
+    "unitType": "边缘部门",
+    "bands": [
+      "省部级"
+    ],
+    "theme": "daily",
+    "description": "省科协组织年度老干部体检，按级别分配名额。钱老是退休的省科协老主席，身体不好，但名额已满。他秘书打电话来，说钱老「为科协奉献一辈子」，希望「特事特办」。你手头还有一个机动名额，本来是留给在职干部突发情况的。给，坏了规矩；不给，老同志寒心。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "按规定办，机动名额不动",
+        "costAp": 1,
+        "effects": {
+          "authority": 6,
+          "ability": 4,
+          "popularity": -10,
+          "mgmt": -3
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "给钱老特批一个",
+        "costAp": 2,
+        "effects": {
+          "popularity": 8,
+          "mgmt": 5,
+          "risk": 12,
+          "authority": -8
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "让办公室再协调一个名额",
+        "costAp": 0,
+        "effects": {
+          "risk": 8,
+          "kpi": -3,
+          "ability": -3,
+          "popularity": -2
+        }
+      }
+    ]
+  }
+]

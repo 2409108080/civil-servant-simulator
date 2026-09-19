@@ -1,0 +1,25 @@
+# ══════════ 密钥：绝不入库 ══════════
+# backend/.env 里是真实 API Key。backend/.gitignore 已经拦了一道，
+# 这里再拦一道：根目录的规则是最后一道闸，宁可重复也不能漏。
+.env
+*.env
+!.env.example
+
+# ══════════ Python ══════════
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# ══════════ Node 与构建产物 ══════════
+node_modules/
+dist/
+
+# ══════════ 系统与编辑器 ══════════
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# ══════════ 运行产物 ══════════
+*.log

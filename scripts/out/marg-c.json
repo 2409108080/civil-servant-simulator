@@ -1,0 +1,188 @@
+[
+  {
+    "id": "evt_marg_c_gazetteer_review",
+    "title": "志稿里那句话",
+    "npcName": "总纂 郑老",
+    "unitType": "边缘部门",
+    "bands": [
+      "处级"
+    ],
+    "theme": "daily",
+    "description": "市志清样送到你手上，三百多万字，只差付印。第四卷有一处，记的是某位现任领导早年在厂里任职时的一桩旧事，当年的结论是「待查」。郑老坚持原文照录，说志书讲的就是一个「实」字；宣传部的同志私下提醒，这一段最好处理一下。付印在即，谁都等你拍板。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "照郑老的意见，原文付印",
+        "costAp": 1,
+        "effects": {
+          "authority": 8,
+          "ability": 6,
+          "mgmt": -10,
+          "energy": -6
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "删去这一段，稳妥为上",
+        "costAp": 1,
+        "effects": {
+          "mgmt": 8,
+          "authority": -8,
+          "ability": -6,
+          "energy": -5
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "写个请示，报宣传部审定",
+        "costAp": 0,
+        "effects": {
+          "mgmt": -4,
+          "kpi": -4,
+          "ability": -4,
+          "energy": -6
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_marg_c_quota_call",
+    "title": "空出来的编制",
+    "npcName": "府办副主任 老李",
+    "unitType": "边缘部门",
+    "bands": [
+      "处级"
+    ],
+    "theme": "daily",
+    "description": "机关一个参公编制空了半年，遴选公告挂出去两周，报名二十六人。本单位的老周干了九年，材料是他写的，会是他开的，大家都看着。上周府办老李来电话，说有个年轻人想调过来，「组织上会考虑的」，让你先把公告往后放放。老周这两天见你，话比平时少。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "按公告走，公开遴选",
+        "costAp": 1,
+        "effects": {
+          "authority": 10,
+          "popularity": 6,
+          "mgmt": -12,
+          "energy": -8
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "给老李这个面子",
+        "costAp": 1,
+        "effects": {
+          "mgmt": 12,
+          "risk": 12,
+          "popularity": -10,
+          "authority": -8
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "公告继续挂，人选以后再说",
+        "costAp": 0,
+        "effects": {
+          "mgmt": -6,
+          "popularity": -5,
+          "kpi": -4,
+          "energy": -5
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_marg_c_inspection_refund",
+    "title": "一笔评审费",
+    "npcName": "纪检组长 老方",
+    "unitType": "边缘部门",
+    "bands": [
+      "处级"
+    ],
+    "theme": "daily",
+    "description": "巡察反馈意见下来了，第三条是前几年发放的评审费、讲课费不规范，要逐人清退，一共四十多万，涉及在职的、退休的，还有两位已经提拔走的前任领导。老方把名单放在你桌上，问清退的口径怎么定。名单最上面那几个人，电话得你自己打。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "一个不漏，全额清退",
+        "costAp": 2,
+        "effects": {
+          "authority": 10,
+          "ability": 6,
+          "popularity": -14,
+          "risk": -10,
+          "energy": -12
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "在职的退，退休的写说明",
+        "costAp": 1,
+        "effects": {
+          "popularity": 6,
+          "risk": 14,
+          "mgmt": 6,
+          "authority": -8
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "先开个会吹吹风，看看反应",
+        "costAp": 0,
+        "effects": {
+          "energy": -6,
+          "kpi": -5,
+          "ability": -4,
+          "mgmt": -4
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_marg_c_idle_property",
+    "title": "楼下那间临街房",
+    "npcName": "承租老板 老潘",
+    "unitType": "边缘部门",
+    "bands": [
+      "处级"
+    ],
+    "theme": "daily",
+    "description": "单位楼下三间临街房空了两年，落灰、招贼，消防检查次次点名。老潘找上门，想租下来开个培训点，一年给九万，说「不用走那么麻烦的程序，先签个协议，钱按月打过来」。国有资产出租要报批、要评估、要公开招租，走完至少半年。办公室主任把这个事端到你面前。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "按规定报批，公开招租",
+        "costAp": 1,
+        "effects": {
+          "authority": 8,
+          "ability": 6,
+          "kpi": -8,
+          "energy": -10
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "先签个短期协议，边租边报",
+        "costAp": 1,
+        "effects": {
+          "kpi": 10,
+          "popularity": 5,
+          "risk": 18,
+          "energy": -6
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "锁上门，谁也别用",
+        "costAp": 0,
+        "effects": {
+          "kpi": -6,
+          "ability": -5,
+          "popularity": -4,
+          "mgmt": -4,
+          "energy": -4
+        }
+      }
+    ]
+  }
+]

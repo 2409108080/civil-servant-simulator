@@ -1,0 +1,140 @@
+[
+  {
+    "id": "evt_common_k_unannounced_inspection",
+    "title": "暗访组进了服务大厅",
+    "npcName": "纪委暗访组 老陈",
+    "unitType": "通用",
+    "bands": [
+      "科级"
+    ],
+    "theme": "risk",
+    "description": "周五下午，纪委暗访组两名同志没打招呼就进了你分管的服务大厅，手机里存着三段视频：窗口空岗、群众排队无人引导、公示栏还挂着去年的内容。带队的只说了一句，按程序办，你先写个情况说明。你清楚那三天你人在县里开会，可排班表上签的是你的名字。是把话说到前头，还是先找人协调一下？",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "连夜写说明，附上会议签到和排班表",
+        "costAp": 2,
+        "effects": {
+          "energy": -16,
+          "risk": -12,
+          "ability": 6,
+          "authority": 5,
+          "mgmt": -4
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "先给老陈的老领导打个电话协调一下",
+        "costAp": 1,
+        "effects": {
+          "risk": 11,
+          "mgmt": 6,
+          "popularity": 4,
+          "energy": -8
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "这个事先放一放，等等风头",
+        "costAp": 0,
+        "effects": {
+          "risk": 9,
+          "mgmt": -5,
+          "popularity": -4,
+          "energy": -4
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_common_k_inquiry_letter",
+    "title": "一封函询通知书",
+    "npcName": "纪委 张副书记",
+    "unitType": "通用",
+    "bands": [
+      "科级"
+    ],
+    "theme": "risk",
+    "description": "一份函询通知书摆在桌上，红头编号，要求十五个工作日内书面回复。问的是三年前你经手那笔经费里两张餐饮发票的用途。项目扫尾那年饭确实吃了，票是后补的，你签了字就翻篇了。张副书记找你谈话时只说，不要有思想包袱，如实说明就行。可你明白，如实这两个字往下写，就是一条线。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "逐条如实回复，把当年的经手人列清楚",
+        "costAp": 2,
+        "effects": {
+          "energy": -15,
+          "risk": -11,
+          "ability": 7,
+          "mgmt": -5
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "托人递句话，请组织上会考虑的",
+        "costAp": 1,
+        "effects": {
+          "risk": 13,
+          "mgmt": 7,
+          "popularity": 5,
+          "energy": -10
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "拖着，先答复个模棱两可的说明",
+        "costAp": 0,
+        "effects": {
+          "risk": 10,
+          "mgmt": -6,
+          "authority": -4
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_common_k_colleague_ambush",
+    "title": "汇报会上的冷箭",
+    "npcName": "同僚 老赵",
+    "unitType": "通用",
+    "bands": [
+      "科级"
+    ],
+    "theme": "risk",
+    "description": "巡视组下沉到你们单位第三天，汇报会上，一直与你不睦的老赵忽然开口，说你分管的那块有个项目，验收材料的时间比开工还早。屋里静了两秒，巡视组那位同志把笔停住了。主要领导看了你一眼，说回头再说。散会时老赵从你身边过去，拍了拍你的肩，什么也没说。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "当场认下，会后三天内补齐台账",
+        "costAp": 2,
+        "effects": {
+          "energy": -18,
+          "authority": 6,
+          "ability": 5,
+          "risk": -9,
+          "popularity": -5
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "顺手把老赵那块的老账也提一提",
+        "costAp": 1,
+        "effects": {
+          "risk": 12,
+          "authority": 4,
+          "popularity": -9,
+          "energy": -11
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "会后单独找领导，请这个事先放一放",
+        "costAp": 0,
+        "effects": {
+          "risk": 9,
+          "mgmt": -5,
+          "popularity": -3
+        }
+      }
+    ]
+  }
+]

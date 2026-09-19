@@ -1,0 +1,399 @@
+[
+  {
+    "id": "evt_common_any_late_night_draft",
+    "title": "明早要报的材料",
+    "npcName": "同科室 老陈",
+    "unitType": "通用",
+    "bands": [
+      "科级",
+      "处级",
+      "厅级",
+      "省部级"
+    ],
+    "theme": "daily",
+    "description": "晚上十点，明天一早的汇报材料还差一大块。老陈端着杯子过来，说孩子发烧还在医院，问你能否把他分管那部分也带上，「你笔头比我快」。你自己那部分也才开了个头，整层楼就剩你们这一间亮着灯。分工本来是清楚的，可明天误了事，板子是一起挨的，材料上又不写谁写哪一段。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "全接下，通宵赶出来",
+        "costAp": 2,
+        "effects": {
+          "energy": -22,
+          "health": -12,
+          "kpi": 8,
+          "ability": 5,
+          "popularity": 4
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "只写自己那份，到点就走",
+        "costAp": 1,
+        "effects": {
+          "energy": -6,
+          "popularity": -10,
+          "authority": 4,
+          "ability": 3
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "把提纲给他，让他照着填",
+        "costAp": 0,
+        "effects": {
+          "energy": -4,
+          "popularity": -6,
+          "kpi": -4,
+          "mgmt": -2
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_common_any_night_duty_call",
+    "title": "凌晨两点的电话",
+    "npcName": "值班室 老周",
+    "unitType": "通用",
+    "bands": [
+      "科级",
+      "处级",
+      "厅级",
+      "省部级"
+    ],
+    "theme": "daily",
+    "description": "你值夜班，凌晨两点电话响了。下面报上来一件事，不大不小，有人家里出了状况，情绪激动，说要在网上发。对方问要不要往上报。报早了怕惊动领导，明天挨一句小题大做；压下来万一发酵，责任全在你身上。老周在旁边搓着手，说这种事「你懂的」，他不好替你拿主意。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "按程序上报值班领导和分管领导",
+        "costAp": 1,
+        "effects": {
+          "energy": -10,
+          "mgmt": 3,
+          "authority": 4,
+          "kpi": -3,
+          "risk": -6
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "先稳住下面，天亮再报",
+        "costAp": 1,
+        "effects": {
+          "energy": -6,
+          "popularity": 4,
+          "mgmt": 2,
+          "authority": -3,
+          "risk": 10
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "让下面按老规矩先处置",
+        "costAp": 0,
+        "effects": {
+          "energy": -2,
+          "mgmt": -4,
+          "popularity": 3,
+          "risk": 12
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_common_any_banquet_envelope",
+    "title": "散场时的信封",
+    "npcName": "老同学 老赵",
+    "unitType": "通用",
+    "bands": [
+      "科级",
+      "处级",
+      "厅级",
+      "省部级"
+    ],
+    "theme": "daily",
+    "description": "老同学做东，饭桌上还坐着一个面生的老板，全程没提正事，只说交个朋友。散场时老赵把一个信封塞进你外套口袋，说是过节的意思，别见外。你手插在兜里，摸得出厚度。这事不上台面，收了也未必有人知道，可万一哪天被人翻出来，谁也保不了你。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "当场退回去，把话说透",
+        "costAp": 1,
+        "effects": {
+          "energy": -6,
+          "popularity": -8,
+          "authority": 6,
+          "mgmt": -3,
+          "risk": -8
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "收下，人情以后再说",
+        "costAp": 1,
+        "effects": {
+          "popularity": 6,
+          "mgmt": 2,
+          "authority": -4,
+          "risk": 18
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "借口有事先走，不做表态",
+        "costAp": 0,
+        "effects": {
+          "energy": -4,
+          "popularity": -6,
+          "mgmt": -2
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_common_any_sign_the_form",
+    "title": "这张票我先签了",
+    "npcName": "隔壁科室 小刘",
+    "unitType": "通用",
+    "bands": [
+      "科级",
+      "处级",
+      "厅级",
+      "省部级"
+    ],
+    "theme": "daily",
+    "description": "小刘抱来一沓票据，说领导催得急，先走流程，「你把字签了，后面的我来补」。里面有两张不合规，你一眼就看得出来。按程序办，是退回去重开；特事特办，是替他担着。真出了事，签字的是你，追责追不到他头上。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "退回，让他按规矩补齐",
+        "costAp": 1,
+        "effects": {
+          "energy": -5,
+          "popularity": -6,
+          "authority": 6,
+          "kpi": -2,
+          "risk": -8
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "先签了，让他赶紧去办",
+        "costAp": 1,
+        "effects": {
+          "energy": -3,
+          "popularity": 6,
+          "mgmt": 3,
+          "authority": -4,
+          "risk": 14
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "拿不准，让他去问领导",
+        "costAp": 0,
+        "effects": {
+          "energy": -3,
+          "popularity": -5,
+          "mgmt": -3,
+          "ability": -3
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_common_any_appraisal_vote",
+    "title": "测评表上的名字",
+    "npcName": "老同事 王姐",
+    "unitType": "通用",
+    "bands": [
+      "科级",
+      "处级",
+      "厅级",
+      "省部级"
+    ],
+    "theme": "daily",
+    "description": "年度测评前，王姐端着茶杯在你工位边站了一会儿，说今年是她最后一次机会，退了就再没下一回，「老弟你手里的笔，心里有数就行」。测评虽说无记名，科室就这么几个人，谁打了谁，明眼人看得出来。照实填，她多半评不上；顺着人情，别人也就这么顺着你。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "按实际表现填",
+        "costAp": 1,
+        "effects": {
+          "energy": -4,
+          "popularity": -8,
+          "authority": 5,
+          "mgmt": -2
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "顺手给她打个高分",
+        "costAp": 1,
+        "effects": {
+          "popularity": 6,
+          "authority": -5,
+          "kpi": -2,
+          "risk": 10
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "把表压着，等别人先交",
+        "costAp": 0,
+        "effects": {
+          "energy": -2,
+          "popularity": -3,
+          "mgmt": -3,
+          "authority": -4
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_common_any_inspection_ledger",
+    "title": "台账还差三本",
+    "npcName": "分管领导 老李",
+    "unitType": "通用",
+    "bands": [
+      "科级",
+      "处级",
+      "厅级",
+      "省部级"
+    ],
+    "theme": "daily",
+    "description": "检查组后天到，台账还差三本，其中一本去年根本没做过。老李把门带上，说补一补，把时间往前挪，面上的东西得过得去。补台账不难，难的是这是个坑——补上去的日期和会议记录对不上，一旦被翻出来，性质就变了。可要是不补，检查组当场点出来，丢的是全单位的脸。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "缺就缺，照实说明",
+        "costAp": 1,
+        "effects": {
+          "energy": -6,
+          "mgmt": -8,
+          "kpi": -6,
+          "authority": 6
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "连夜补齐，做得像样",
+        "costAp": 2,
+        "effects": {
+          "energy": -18,
+          "health": -8,
+          "kpi": 8,
+          "mgmt": 6,
+          "risk": 16
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "补一部分，关键处留空",
+        "costAp": 0,
+        "effects": {
+          "energy": -4,
+          "mgmt": -2,
+          "risk": 10
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_common_any_urgent_supervision",
+    "title": "点名要你回的件",
+    "npcName": "办公室 小郑",
+    "unitType": "通用",
+    "bands": [
+      "科级",
+      "处级",
+      "厅级",
+      "省部级"
+    ],
+    "theme": "daily",
+    "description": "上级下来一件督办件，点名要本部门今天下班前书面回复，还抄送了主要领导。按规矩，该处长签字后再报，可处长在外地开会，电话里只说「你先拟着，顾全大局」。今天不回，明天的通报里就有你；自己回了，越了口，处长回来未必认这个账。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "等处长回来签字再报",
+        "costAp": 1,
+        "effects": {
+          "energy": -4,
+          "mgmt": -6,
+          "kpi": -5,
+          "authority": 4,
+          "risk": -5
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "先拟好报上去，事后补签",
+        "costAp": 1,
+        "effects": {
+          "energy": -8,
+          "mgmt": 6,
+          "kpi": 5,
+          "risk": 12
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "只回一句正在核实办理",
+        "costAp": 0,
+        "effects": {
+          "energy": -3,
+          "mgmt": -4,
+          "kpi": -5
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_common_any_talk_with_discipline",
+    "title": "有人来问你两句话",
+    "npcName": "纪委 老康",
+    "unitType": "通用",
+    "bands": [
+      "科级",
+      "处级",
+      "厅级",
+      "省部级"
+    ],
+    "theme": "daily",
+    "description": "隔壁科室的老孙被叫去谈话已经三天。今天下午来了两位同志，先聊了些家常，然后问起去年那笔费用是怎么经手的，说你经手过其中一两个环节，问你知道些什么。你确实知道一点，可话说出去，老孙一家就难了；你要是咬死不知道，将来对不上口，你自己也说不清。临走人家说，不要有思想包袱。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "知道的照实说",
+        "costAp": 1,
+        "effects": {
+          "energy": -8,
+          "popularity": -12,
+          "authority": 4,
+          "risk": -10
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "说记不清，含糊过去",
+        "costAp": 1,
+        "effects": {
+          "energy": -6,
+          "popularity": 4,
+          "authority": -5,
+          "risk": 16
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "问什么答什么，不多说",
+        "costAp": 0,
+        "effects": {
+          "energy": -5,
+          "popularity": -3,
+          "mgmt": -3,
+          "authority": -2
+        }
+      }
+    ]
+  }
+]

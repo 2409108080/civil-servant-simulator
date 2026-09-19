@@ -1,0 +1,281 @@
+[
+  {
+    "id": "evt_core_t_midnight_report",
+    "title": "深夜改材料",
+    "npcName": "市委副秘书长老陈",
+    "unitType": "核心部门",
+    "bands": [
+      "厅级"
+    ],
+    "theme": "daily",
+    "description": "晚上十一点，市委办三楼还亮着灯。明天书记要在省委全会上发言，材料里全市规上工业增速有两个数：统计局的原始口径是3.1%，业务处室'对标对表'之后改成了6.8%。副秘书长老陈把两版都摊在你桌上，说书记只看一个数。窗外雨声很密，这份材料由你分管，签下去就代表全市的口径。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "用原始数上报，宁可难看",
+        "costAp": 2,
+        "effects": {
+          "energy": -8,
+          "ability": 6,
+          "authority": 5,
+          "mgmt": -8,
+          "kpi": -6
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "按6.8%报，明天先过关",
+        "costAp": 1,
+        "effects": {
+          "energy": -6,
+          "kpi": 10,
+          "mgmt": 8,
+          "risk": 16
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "两版附注，请书记自己定",
+        "costAp": 0,
+        "effects": {
+          "ability": -3,
+          "mgmt": -5,
+          "popularity": -3,
+          "authority": -2
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_core_t_coordination_meeting",
+    "title": "协调会上的沉默",
+    "npcName": "发改委副主任老韩",
+    "unitType": "核心部门",
+    "bands": [
+      "厅级"
+    ],
+    "theme": "daily",
+    "description": "你牵头全市'一把手工程'的调度会，财政、自然资源、住建各来了一位副职。任务清单上三项卡在土地指标，谁都不接话，有人翻材料，有人起身接水。会开到这儿只有两条路：当场把责任压实到某个局，或者把矛盾打包，请分管副市长来定。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "当场点名，压实责任",
+        "costAp": 1,
+        "effects": {
+          "authority": 8,
+          "kpi": 5,
+          "popularity": -10,
+          "risk": 4
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "会后单聊，逐个协调",
+        "costAp": 1,
+        "effects": {
+          "energy": -10,
+          "popularity": 8,
+          "mgmt": 4,
+          "risk": 12
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "打包上报，请领导定夺",
+        "costAp": 0,
+        "effects": {
+          "authority": -4,
+          "ability": -3,
+          "popularity": -3,
+          "mgmt": -2
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_core_t_cadre_review",
+    "title": "考察对象有举报",
+    "npcName": "干部一科科长小吴",
+    "unitType": "核心部门",
+    "bands": [
+      "厅级"
+    ],
+    "theme": "daily",
+    "description": "部务会前夜，考察组刚回来。对象是邻县的县长人选，政绩亮眼，民主推荐票也高。可科里收到一封匿名举报，说他在上一个岗位上把一笔专项资金的招标'灵活把握'了，没署名，也没有实证。部长明天听汇报，材料由你先核。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "如实写入考察材料",
+        "costAp": 2,
+        "effects": {
+          "energy": -8,
+          "ability": 8,
+          "authority": 6,
+          "popularity": -8
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "找知情人私下核实",
+        "costAp": 1,
+        "effects": {
+          "energy": -12,
+          "ability": 6,
+          "kpi": 4,
+          "popularity": -5,
+          "risk": 6
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "先放一放，口头提醒部长",
+        "costAp": 0,
+        "effects": {
+          "mgmt": 6,
+          "popularity": 5,
+          "risk": 16,
+          "authority": -3
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_core_t_provincial_check",
+    "title": "迎检前的台账",
+    "npcName": "督查室主任老赵",
+    "unitType": "核心部门",
+    "bands": [
+      "厅级"
+    ],
+    "theme": "daily",
+    "description": "省考核组下周到，材料组已经把三年的台账码了两面墙。有一项指标实际没完成，业务处室建议把去年超额的部分挪到今年，说口径一致，不影响结果。你分管这一块，签字的笔就在手边。督查室老赵说，这事留个痕就行，不必较真。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "拒绝挪数，如实说明",
+        "costAp": 2,
+        "effects": {
+          "authority": 6,
+          "ability": 5,
+          "mgmt": -8,
+          "kpi": -8
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "默许补台账，先过考核",
+        "costAp": 1,
+        "effects": {
+          "energy": -6,
+          "kpi": 10,
+          "mgmt": 6,
+          "risk": 16
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "把问题原样报给分管领导",
+        "costAp": 0,
+        "effects": {
+          "mgmt": -4,
+          "ability": -3,
+          "popularity": -3,
+          "authority": -2
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_core_t_two_bosses",
+    "title": "两位领导的意见",
+    "npcName": "市委办副主任老孙",
+    "unitType": "核心部门",
+    "bands": [
+      "厅级"
+    ],
+    "theme": "daily",
+    "description": "产业园区整合方案，书记在会上说要'快刀斩乱麻'，市长散会后把你叫到办公室，说步子太大，先稳一稳，顾全大局。方案明天要上市政府常务会，两边都在你的稿子上圈了红。夜里十一点，楼道里只剩中央空调的嗡声。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "按书记口径定稿",
+        "costAp": 1,
+        "effects": {
+          "mgmt": 10,
+          "authority": 5,
+          "popularity": -8,
+          "risk": 6
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "放慢节奏，照顾市长意见",
+        "costAp": 1,
+        "effects": {
+          "mgmt": 6,
+          "popularity": 6,
+          "kpi": -6,
+          "risk": 8
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "两案并列，请会上定",
+        "costAp": 0,
+        "effects": {
+          "ability": -4,
+          "mgmt": -4,
+          "popularity": -2,
+          "authority": -2
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_core_t_night_call",
+    "title": "凌晨的突发事件",
+    "npcName": "总值班室主任老郑",
+    "unitType": "核心部门",
+    "bands": [
+      "厅级"
+    ],
+    "theme": "daily",
+    "description": "凌晨两点，值班室电话把你叫醒。辖内一处工地脚手架坍塌，初步报两人失联。舆情一旦发酵，天亮就是头条。分管副市长在外地调研，书记的电话暂时打不通。十分钟内你要定三件事：报不报省里，发不发通稿，你本人去不去现场。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "立即上报省里，同步赶赴现场",
+        "costAp": 2,
+        "effects": {
+          "energy": -15,
+          "health": -8,
+          "mgmt": 8,
+          "authority": 8,
+          "popularity": -4
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "先压两小时，等核实清楚",
+        "costAp": 1,
+        "effects": {
+          "energy": -10,
+          "mgmt": 6,
+          "risk": 18,
+          "kpi": -4
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "按程序逐级上报，等指示",
+        "costAp": 0,
+        "effects": {
+          "mgmt": -4,
+          "ability": -4,
+          "popularity": -3,
+          "authority": -3
+        }
+      }
+    ]
+  }
+]

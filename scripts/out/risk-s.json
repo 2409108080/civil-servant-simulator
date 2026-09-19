@@ -1,0 +1,142 @@
+[
+  {
+    "id": "evt_common_s_letter_inquiry",
+    "title": "函询通知书",
+    "npcName": "省纪委 韩副书记",
+    "unitType": "通用",
+    "bands": [
+      "省部级"
+    ],
+    "theme": "risk",
+    "description": "省纪委的函询通知书摆在案头，要你就三年前那笔专项资金的审批过程作出书面说明。当年那笔钱，是常务副职打过招呼的，你在签批单上落了名字。老韩在电话里语气平和：「按程序办，如实讲清楚就行，不要有思想包袱。」可你清楚，材料一旦落纸，牵出的不止你一个。书面说明，三日内报。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "如实写，把当年签批的来龙去脉讲透",
+        "costAp": 1,
+        "effects": {
+          "ability": 8,
+          "authority": 6,
+          "risk": -18,
+          "mgmt": -10,
+          "energy": -12
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "先找老韩协调，争取谈一次话了结",
+        "costAp": 2,
+        "effects": {
+          "risk": 12,
+          "mgmt": 8,
+          "popularity": 6,
+          "authority": -8,
+          "energy": -15
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "只按文件表面答复，不提打招呼一节",
+        "costAp": 0,
+        "effects": {
+          "risk": 12,
+          "ability": -6,
+          "mgmt": -6,
+          "energy": -8
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_common_s_standing_committee",
+    "title": "常委会上的发难",
+    "npcName": "常务副职 老周",
+    "unitType": "通用",
+    "bands": [
+      "省部级"
+    ],
+    "theme": "risk",
+    "description": "常委会讨论明年投资盘子，老周忽然话锋一转，提起半年前那桩国企重组的传言：「有些事，组织上总得有个说法。」满座无声。你听得出这是他递的信号——考察组下月就下来，他在给自己铺路，也想在你的考察材料上留一笔。会议纪要是要留痕的，这句话你接不接，怎么接。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "当场请组织核实，把话摆到桌面上",
+        "costAp": 2,
+        "effects": {
+          "authority": 12,
+          "ability": 6,
+          "risk": -10,
+          "popularity": -12,
+          "energy": -15
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "会后单独找老周谈，各让一步",
+        "costAp": 1,
+        "effects": {
+          "popularity": 8,
+          "mgmt": 6,
+          "risk": 12,
+          "authority": -10
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "顺着他说，这个事先放一放",
+        "costAp": 0,
+        "effects": {
+          "risk": 9,
+          "authority": -8,
+          "kpi": -5
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_common_s_undercover_visit",
+    "title": "暗访组进了接待点",
+    "npcName": "纪委暗访组 老陈",
+    "unitType": "通用",
+    "bands": [
+      "省部级"
+    ],
+    "theme": "risk",
+    "description": "省纪委暗访组在你的联系点待了两天，走的当晚，办公室主任来电：暗访组拍了照，一次接待超了标准，签单的是你分管口子上的处长。老陈还没找你，但按规定，谈话笔录很快就会到。那处长跟了你六年，材料一交，他先折进去。留给你的，只有这一晚。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "主动向组织报告，把处长一并说清",
+        "costAp": 2,
+        "effects": {
+          "risk": -20,
+          "authority": 8,
+          "ability": 6,
+          "popularity": -12,
+          "energy": -15
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "让处长自己写检讨，先顶上去",
+        "costAp": 1,
+        "effects": {
+          "risk": 8,
+          "mgmt": 5,
+          "ability": -6,
+          "popularity": -12
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "先按程序核实，暂不表态",
+        "costAp": 0,
+        "effects": {
+          "risk": 9,
+          "energy": -8,
+          "popularity": -5
+        }
+      }
+    ]
+  }
+]

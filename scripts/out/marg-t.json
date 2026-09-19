@@ -1,0 +1,226 @@
+[
+  {
+    "id": "evt_marg_t_archive_digitization",
+    "title": "巡视组要销号",
+    "npcName": "整改办 老陈",
+    "unitType": "边缘部门",
+    "bands": [
+      "厅级"
+    ],
+    "theme": "daily",
+    "description": "巡视反馈的问题清单里，你单位挂了一条：馆藏档案数字化率长期不达标，前年立项的专项经费年末被财政收回。整改办要求月底销号，老陈一天来三趟。你翻开台账，真正没扫的是民国那批虫蛀霉变的卷宗，外包公司报价翻了一倍，还撂话说这批纸一碰就碎。业务处报了个方案：先把好扫的补扫一遍，数字凑上去。会议室里几个人都看你。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "按方案报，先把数字凑够",
+        "costAp": 1,
+        "effects": {
+          "kpi": 8,
+          "risk": 14,
+          "ability": -6,
+          "energy": -8
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "如实报延期，附霉变卷宗的照片",
+        "costAp": 2,
+        "effects": {
+          "authority": 8,
+          "mgmt": -8,
+          "kpi": -6,
+          "energy": -10
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "任务分解给二级单位认领",
+        "costAp": 0,
+        "effects": {
+          "risk": 10,
+          "popularity": -8,
+          "ability": -3
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_marg_t_society_fee_rebate",
+    "title": "学会的收费单",
+    "npcName": "学会理事长 郑老",
+    "unitType": "边缘部门",
+    "bands": [
+      "厅级"
+    ],
+    "theme": "daily",
+    "description": "举报信转到你案头：下属某学会以\"科技成果评价\"名义向二十几家企业收费，每份三万，出具的意见盖着学会的章。理事长是刚退下来的老厅长，电话里说得轻松——都是惯例，协调一下就行，你懂的。学会账上还挂着一笔没走完的评审费，票据不全。纪检的同志问你什么时候方便过去谈一谈。窗外走廊上，学会的秘书长已经站了半个钟头。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "约谈学会，限期清退并书面说明",
+        "costAp": 2,
+        "effects": {
+          "authority": 10,
+          "popularity": -10,
+          "risk": -12,
+          "energy": -10
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "批回学会自行处理，报个结果",
+        "costAp": 0,
+        "effects": {
+          "risk": 14,
+          "ability": -4,
+          "popularity": 2
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "登门请郑老出面退一部分",
+        "costAp": 1,
+        "effects": {
+          "risk": 10,
+          "popularity": 6,
+          "authority": -8
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_marg_t_gazetteer_fee",
+    "title": "八年的一部志",
+    "npcName": "返聘老同志 老方",
+    "unitType": "边缘部门",
+    "bands": [
+      "厅级"
+    ],
+    "theme": "daily",
+    "description": "志书编了八年，还差最后两卷。审计翻账时发现，几位退休返聘的老同志稿费按季度照发，近两年交上来的稿子却不多，其中一位是当年把你从县里提上来的老领导。财务处长把单子放在你桌上，说按程序办也行，您签个字也行。这部志书是省里的重点文化工程，年底要报进度和成果。老方上午还来问过下半年的费用。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "签字照发，先把进度保住",
+        "costAp": 1,
+        "effects": {
+          "kpi": 6,
+          "risk": 12,
+          "mgmt": 4,
+          "authority": -6
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "停发稿费，改按字数签劳务合同",
+        "costAp": 2,
+        "effects": {
+          "authority": 8,
+          "ability": 6,
+          "popularity": -12,
+          "energy": -8
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "让财务先挂账，等出版再说",
+        "costAp": 0,
+        "effects": {
+          "risk": 12,
+          "ability": -5,
+          "popularity": 2
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_marg_t_inspector_quota",
+    "title": "只有一个名额",
+    "npcName": "人事处长 老韩",
+    "unitType": "边缘部门",
+    "bands": [
+      "厅级"
+    ],
+    "theme": "daily",
+    "description": "组织部给了单位一个二级巡视员的名额。两位老处长都到线上了：一位干了三十年，业务上没出过差错，人缘扎实；一位这几年抓数字化和场馆改造，材料写得漂亮，跟省里的口径对得上。老韩把两份简历摊开，说民主推荐、组织考察、上会研究，程序一步不能少，可结果只能是一个人。这几天的走廊，比平时安静。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "按任职年限和推荐，给老资历那位",
+        "costAp": 1,
+        "effects": {
+          "popularity": 5,
+          "authority": 5,
+          "kpi": -6,
+          "mgmt": -5
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "给抓工作那一位，立个导向",
+        "costAp": 1,
+        "effects": {
+          "kpi": 6,
+          "mgmt": 6,
+          "popularity": -12,
+          "authority": -5
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "暂不上会，报请上级一并考虑",
+        "costAp": 0,
+        "effects": {
+          "risk": 10,
+          "ability": -4,
+          "mgmt": -6
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_marg_t_secondment_request",
+    "title": "借调两个人的函",
+    "npcName": "省委办 王处长",
+    "unitType": "边缘部门",
+    "bands": [
+      "厅级"
+    ],
+    "theme": "daily",
+    "description": "省委办公厅来了函，借调你单位两个年轻骨干去写材料，为期一年，说是重大任务，要顾全大局。在编的年轻人本来只有四个，一个刚休产假，志书、年鉴、数字化全压在他们身上。王处长在电话里语气很客气：人还是你的，就是用一用，回头组织上会考虑的。放下电话，业务处长已经堵在门口了。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "痛快放人，手续当天办完",
+        "costAp": 1,
+        "effects": {
+          "mgmt": 10,
+          "ability": -6,
+          "kpi": -6,
+          "popularity": -4
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "讨价还价，只给一个并提替换方案",
+        "costAp": 2,
+        "effects": {
+          "mgmt": -6,
+          "ability": 5,
+          "authority": 6,
+          "energy": -8
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "以工作压头为由，暂缓办理",
+        "costAp": 0,
+        "effects": {
+          "mgmt": -10,
+          "risk": 9,
+          "popularity": -3
+        }
+      }
+    ]
+  }
+]

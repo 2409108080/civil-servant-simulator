@@ -1,0 +1,99 @@
+[
+  {
+    "id": "evt_common_t_checkup_redlines",
+    "title": "体检单上的红箭头",
+    "npcName": "保健办主任 老康",
+    "unitType": "通用",
+    "bands": [
+      "厅级"
+    ],
+    "theme": "health",
+    "description": "年度体检报告出来，肝上三项、血糖、血压，红箭头排了半页。保健办主任把住院单推到你面前，说这个情况不能拖，先把床位留着。可下周三省里来考核组，周五还有一场招商签约，主要领导点名要你到场。他把笔搁在单子上，补了一句：这个事，你自己把握。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "住院单压进抽屉，晚上输液白天开会",
+        "costAp": 1,
+        "effects": {
+          "energy": -12,
+          "health": -15,
+          "kpi": 8,
+          "mgmt": 6,
+          "risk": 4
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "请假两周住院，分管的事交出去",
+        "costAp": 0,
+        "effects": {
+          "health": 18,
+          "energy": 12,
+          "kpi": -10,
+          "mgmt": -8,
+          "authority": -4
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "住特需病房，病历写成肠胃炎，会照开",
+        "costAp": 2,
+        "effects": {
+          "health": -6,
+          "energy": -8,
+          "kpi": 8,
+          "mgmt": 5,
+          "risk": 12
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_common_t_family_pressure_transfer",
+    "title": "爱人去了趟组织部",
+    "npcName": "常务副部长 老方",
+    "unitType": "通用",
+    "bands": [
+      "厅级"
+    ],
+    "theme": "health",
+    "description": "妻子拿着你的体检报告，去了市委组织部，找的是她大学同学。当天下午，常务副部长老方打来电话，语气客气：家里有困难，组织上会考虑的，但也要尊重本人的意愿。挂了电话，你桌上还压着明早上会的产业规划方案，窗外已经黑透了。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "回话老方，家里的事不用组织操心",
+        "costAp": 1,
+        "effects": {
+          "authority": 6,
+          "energy": -6,
+          "popularity": -6,
+          "mgmt": -3
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "默认妻子的做法，补一份个人情况说明",
+        "costAp": 1,
+        "effects": {
+          "mgmt": 6,
+          "popularity": 3,
+          "kpi": -8,
+          "authority": -6,
+          "risk": 10
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "向市委请一个月病假，工作全权交常务",
+        "costAp": 0,
+        "effects": {
+          "health": 16,
+          "energy": 10,
+          "kpi": -10,
+          "mgmt": -8,
+          "authority": -5
+        }
+      }
+    ]
+  }
+]

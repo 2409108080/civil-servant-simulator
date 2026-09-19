@@ -1,0 +1,272 @@
+[
+  {
+    "id": "evt_bureau_k_window_complaint",
+    "title": "窗口前的手机",
+    "npcName": "窗口科员 小陈",
+    "unitType": "常规局委",
+    "bands": [
+      "科级"
+    ],
+    "theme": "daily",
+    "description": "月底的服务窗口前，一位老人举着手机录像，说材料退了三回，每次讲的清单都不一样。小陈红着眼辩解，说清单上写得清楚，自己不敢灵活把握。大厅里围了七八个人，有人也在拍。局里正在抓「一网通办」考核，每一件投诉都直接计入月度排名，分管领导上午刚在会上说，这个月不能再出岔子。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "当场道歉，重新受理，今天办完",
+        "costAp": 1,
+        "effects": {
+          "popularity": 8,
+          "kpi": 6,
+          "energy": -8,
+          "authority": -5
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "请到接待室，先安抚再说",
+        "costAp": 1,
+        "effects": {
+          "popularity": 4,
+          "risk": 7,
+          "mgmt": 3,
+          "authority": -4
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "照清单办，投诉走流程",
+        "costAp": 0,
+        "effects": {
+          "ability": 4,
+          "popularity": -6,
+          "kpi": -3
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_bureau_k_joint_doc_shirk",
+    "title": "空着的那一条",
+    "npcName": "邻局科长 老赵",
+    "unitType": "常规局委",
+    "bands": [
+      "科级"
+    ],
+    "theme": "daily",
+    "description": "县里要报一份联合整治方案，牵头的是你们局。征求意见稿发出去，两家回「无意见」，第三家把涉及自己的职责条款整段划掉，电话里说这项该你们主责，我们配合。分管副县长后天听汇报，方案里空着的那一块还没人认领。会上讲一句顾全大局容易，落到纸上签字的却是你。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "把空着的那块先揽下来",
+        "costAp": 1,
+        "effects": {
+          "mgmt": 7,
+          "kpi": 5,
+          "energy": -10,
+          "risk": 5
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "拿文件去当面请示县领导",
+        "costAp": 2,
+        "effects": {
+          "mgmt": 8,
+          "authority": 4,
+          "popularity": -7,
+          "energy": -8
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "按原分工上报，附分歧说明",
+        "costAp": 0,
+        "effects": {
+          "ability": 4,
+          "mgmt": -3,
+          "popularity": -4,
+          "kpi": -2
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_bureau_k_approval_favor",
+    "title": "先拨后补",
+    "npcName": "高中同学 张总",
+    "unitType": "常规局委",
+    "bands": [
+      "科级"
+    ],
+    "theme": "daily",
+    "description": "一笔惠农补贴卡在你这一环，材料只差一份现场核验单。打电话的是你高中同学，说先拨后补，年底指标压着，办成了也算帮你们冲进度。分管副局长在走廊里提了一句，这个项目是「一把手工程」，别卡脖子。你签下去，责任就落在你头上；不签，以后的饭桌上也难见面。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "先拨后补，限他三天补齐",
+        "costAp": 1,
+        "effects": {
+          "kpi": 8,
+          "mgmt": 5,
+          "risk": 12,
+          "health": -5
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "退回，材料齐全再签",
+        "costAp": 1,
+        "effects": {
+          "ability": 6,
+          "authority": 5,
+          "mgmt": -5,
+          "popularity": -6
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "把材料搁着，等他自己来问",
+        "costAp": 0,
+        "effects": {
+          "risk": 9,
+          "energy": 3,
+          "popularity": -3
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_bureau_k_ledger_inspection",
+    "title": "检查组要看台账",
+    "npcName": "检查组 王处长",
+    "unitType": "常规局委",
+    "bands": [
+      "科级"
+    ],
+    "theme": "daily",
+    "description": "市局检查组下周到，要抽查近三年的工作台账。你翻了一遍，发现前年两次活动只有通知，没有签到、没有照片，经办的人早调走了。科长说，补几张现场照片、做一份签到表，留痕的事大家都懂，只要时间逻辑对得上，就过得去。检查组进门先握手，翻本子的时候可不握手。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "补齐台账，签到表做扎实",
+        "costAp": 1,
+        "effects": {
+          "kpi": 8,
+          "mgmt": 4,
+          "risk": 10,
+          "energy": -8
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "如实写情况说明报上去",
+        "costAp": 1,
+        "effects": {
+          "ability": 6,
+          "authority": 5,
+          "kpi": -8,
+          "popularity": -4
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "只报查得到的部分",
+        "costAp": 0,
+        "effects": {
+          "risk": 9,
+          "mgmt": -4,
+          "popularity": -2
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_bureau_k_staff_borrow",
+    "title": "股室里少两个人",
+    "npcName": "分管副局长 老马",
+    "unitType": "常规局委",
+    "bands": [
+      "科级"
+    ],
+    "theme": "daily",
+    "description": "你的股室四个人，一个被市局借调半年，一个请了产假，局办又来通知，说巡察组要抽人，让再出一个。审批件已经堆到桌角。你去找分管领导说困难，领导说各单位都紧，让我先统筹一下，实在不行就加班。窗口不能空，件不能压，人是得从你这里出。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "自己顶上去，件不积压",
+        "costAp": 1,
+        "effects": {
+          "kpi": 6,
+          "ability": 4,
+          "health": -12,
+          "energy": -8
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "找局长当面汇报，争取留人",
+        "costAp": 2,
+        "effects": {
+          "mgmt": 7,
+          "authority": 4,
+          "popularity": -6,
+          "risk": 4
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "谁在谁干，按现有分工硬扛",
+        "costAp": 0,
+        "effects": {
+          "popularity": -7,
+          "kpi": -3,
+          "energy": -4
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_bureau_k_hotline_order",
+    "title": "二十四小时工单",
+    "npcName": "热线办 小李",
+    "unitType": "常规局委",
+    "bands": [
+      "科级"
+    ],
+    "theme": "daily",
+    "description": "政务热线转来一张工单，群众投诉你们局审批超期，实际是隔壁局压着意见没回。工单要求24小时办结并回访满意。热线办小李在电话里说，你们先认下来，把满意率保住，至于责任是谁的，以后再协调。你点了「属实」，这件事就写进你们局的记录里了。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "先认下来，把工单办结",
+        "costAp": 1,
+        "effects": {
+          "kpi": 6,
+          "mgmt": 5,
+          "risk": 7,
+          "energy": -6
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "如实回复，非本单位职责",
+        "costAp": 1,
+        "effects": {
+          "ability": 6,
+          "authority": 4,
+          "kpi": -7,
+          "popularity": -3
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "催对方补意见，先不回单",
+        "costAp": 0,
+        "effects": {
+          "risk": 9,
+          "energy": -4
+        }
+      }
+    ]
+  }
+]

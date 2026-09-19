@@ -1,0 +1,94 @@
+[
+  {
+    "id": "evt_common_k_checkup_warning",
+    "title": "体检单上的红箭头",
+    "npcName": "体检科医生 老陈",
+    "unitType": "通用",
+    "bands": [
+      "科级"
+    ],
+    "theme": "health",
+    "description": "体检报告出来三天了，内科老陈在走廊里把你堵住，说转氨酶和心肌酶两项都高，让你马上住院做进一步检查。可后天要报的那份材料还压在你手上，领导一天催两遍。老陈把笔一搁：你这个指标，再拖下去不是闹着玩的。你摸出手机，屏保是孩子上个月的照片。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "办住院，材料交给小刘",
+        "costAp": 1,
+        "effects": {
+          "health": 12,
+          "kpi": -8,
+          "mgmt": -6,
+          "ability": -4
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "白天上班，晚上去挂水",
+        "costAp": 1,
+        "effects": {
+          "kpi": 6,
+          "mgmt": 5,
+          "energy": -12,
+          "health": -8
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "跟老陈打招呼，报告先别入系统",
+        "costAp": 0,
+        "effects": {
+          "risk": 10,
+          "kpi": 5,
+          "health": -12,
+          "mgmt": 3
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_common_k_family_transfer_pressure",
+    "title": "爱人找上了领导",
+    "npcName": "爱人 秀兰",
+    "unitType": "通用",
+    "bands": [
+      "科级"
+    ],
+    "theme": "health",
+    "description": "你住院第三天，爱人秀兰拿着检查单去了分管领导办公室，说再不给你调岗，这日子就不过了。领导把你叫去，先问了两句身体，又说「组织上会考虑的」，只是眼下这个摊子一时没人接得住。回到病房，秀兰坐在床边不说话，窗外天已经黑了。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "顺势跟领导提，调个清闲岗位",
+        "costAp": 2,
+        "effects": {
+          "health": 14,
+          "kpi": -10,
+          "authority": -6,
+          "mgmt": -4
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "劝秀兰回去，硬扛过这一阵",
+        "costAp": 1,
+        "effects": {
+          "kpi": 8,
+          "mgmt": 6,
+          "health": -12,
+          "popularity": -4
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "让秀兰先回家，这事放一放",
+        "costAp": 0,
+        "effects": {
+          "mgmt": 5,
+          "popularity": -6,
+          "health": -10,
+          "energy": -5
+        }
+      }
+    ]
+  }
+]

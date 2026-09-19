@@ -1,0 +1,92 @@
+[
+  {
+    "id": "evt_core_c_deepnight_material_edit",
+    "title": "深夜改口径",
+    "npcName": "综合处处长",
+    "unitType": "核心部门",
+    "bands": [
+      "处级"
+    ],
+    "theme": "daily",
+    "description": "明天省里听汇报，你分管的材料里，规上工业增加值增速和统计口径差着半个百分点。书记的意思，是表述上再斟酌一下。综合处处长把改过的稿子放在你桌上，折了角。改，报上去的数字对不上审计底稿；不改，明天会场里，书记的面子挂不住。这稿子今晚必须定。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "按书记意思改，措辞上留余地",
+        "costAp": 1,
+        "effects": {
+          "mgmt": 15,
+          "kpi": 5,
+          "risk": 10,
+          "energy": -8
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "维持原数，另附口径说明",
+        "costAp": 1,
+        "effects": {
+          "authority": 8,
+          "ability": 6,
+          "mgmt": -12
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "这个事先放一放，等书记再问",
+        "costAp": 0,
+        "effects": {
+          "risk": 8,
+          "mgmt": -5,
+          "energy": -5
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_core_c_staffing_request_hold",
+    "title": "三个编制的报告",
+    "npcName": "编办副主任",
+    "unitType": "核心部门",
+    "bands": [
+      "处级"
+    ],
+    "theme": "daily",
+    "description": "你分管的单位递上来一份增编报告，要三个编制，理由写得实在，人确实不够。可今年全市编制只减不增，是硬杠杠。分管领导批示了稳妥推进四个字，在案头压了三天。旁边还压着另一个县同样的一份。都是熟人，都要回话。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "退回，要求先内部挖潜",
+        "costAp": 1,
+        "effects": {
+          "authority": 6,
+          "kpi": -5,
+          "popularity": -8,
+          "risk": -5
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "做成全市统筹方案上会",
+        "costAp": 2,
+        "effects": {
+          "mgmt": 10,
+          "ability": 8,
+          "kpi": 6,
+          "energy": -12,
+          "risk": 6
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "压着不动，年底一并报",
+        "costAp": 0,
+        "effects": {
+          "risk": 8,
+          "mgmt": -4,
+          "energy": -4
+        }
+      }
+    ]
+  }
+]

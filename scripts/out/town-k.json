@@ -1,0 +1,227 @@
+[
+  {
+    "id": "evt_town_k_field_fire_night",
+    "title": "田埂上的火",
+    "npcName": "村支书 老韩",
+    "unitType": "基层乡镇",
+    "bands": [
+      "科级"
+    ],
+    "theme": "daily",
+    "description": "夜里十点，禁烧巡查队电话打过来：你包片的那个村，地头起了火，三亩玉米秸秆。你赶到时火已扑灭，点火的是村支书老韩的弟弟。老韩蹲在田埂上给你递烟，说卫星拍不到，报了也是全镇通报。县里刚开完会，这把火要单独考核。若你不上报，明天环保所来核查，火点痕迹还在。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "按程序办，火点如实上报",
+        "costAp": 1,
+        "effects": {
+          "authority": 8,
+          "kpi": -5,
+          "popularity": -8,
+          "risk": -5
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "先压下，让老韩自己处理",
+        "costAp": 1,
+        "effects": {
+          "kpi": 6,
+          "popularity": 6,
+          "risk": 12,
+          "energy": -8
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "说声知道了，等天亮再说",
+        "costAp": 0,
+        "effects": {
+          "energy": -5,
+          "kpi": -4,
+          "risk": 8
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_town_k_low_income_review",
+    "title": "低保评议会",
+    "npcName": "民政助理 小宋",
+    "unitType": "基层乡镇",
+    "bands": [
+      "科级"
+    ],
+    "theme": "daily",
+    "description": "镇上低保评议刚结束，老上访户王老五不符合条件，被刷了下来。他堵在镇政府门口，说要去县里反映，还提了两年前你答应过他的事。民政助理小宋拿着评议表站在旁边，不敢吭声。分管领导在电话里丢下一句：群众诉求要重视，灵活把握，不要有思想包袱。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "按标准答复，不符合就是不符合",
+        "costAp": 1,
+        "effects": {
+          "authority": 8,
+          "ability": 5,
+          "popularity": -8,
+          "risk": -5
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "给个临时救助，先把人劝回去",
+        "costAp": 1,
+        "effects": {
+          "popularity": 8,
+          "mgmt": 4,
+          "risk": 10,
+          "energy": -6
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "让村里先去做工作",
+        "costAp": 0,
+        "effects": {
+          "energy": -5,
+          "popularity": -5,
+          "kpi": -3
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_town_k_inspection_ledger",
+    "title": "迎检台账",
+    "npcName": "党政办主任 老赵",
+    "unitType": "基层乡镇",
+    "bands": [
+      "科级"
+    ],
+    "theme": "daily",
+    "description": "市里下周来检查河长制落实，台账要齐、照片要全、记录要留痕。可去年有三个月的巡河记录，压根没人写。党政办主任老赵抱着一摞空白表格来找你，说镇里都能补上，只要你在河长签字栏落笔，就当是你巡的。他还说，别的乡镇早补完了，就咱们老实。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "补齐全套台账，签我的名字",
+        "costAp": 2,
+        "effects": {
+          "kpi": 8,
+          "mgmt": 8,
+          "risk": 12,
+          "energy": -12
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "只补有据可查的那部分",
+        "costAp": 1,
+        "effects": {
+          "authority": 6,
+          "ability": 5,
+          "mgmt": -6,
+          "energy": -8
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "让老赵先按程序整理",
+        "costAp": 0,
+        "effects": {
+          "mgmt": -5,
+          "kpi": -4,
+          "energy": -4
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_town_k_last_householder",
+    "title": "最后一户不签字",
+    "npcName": "村主任 老吴",
+    "unitType": "基层乡镇",
+    "bands": [
+      "科级"
+    ],
+    "theme": "daily",
+    "description": "省道改线的征地，只剩老陈一户不签字，工期压着，县指挥部一天三个电话。老陈不是不讲理，他是嫌补偿标准低，说要再等一等。他儿子在镇中学教书，校长跟你是老同学。晚上村主任老吴又摸到办公室来，问要不要再想点办法，说这个事不能一直拖着。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "请校长出面，找老陈儿子谈谈",
+        "costAp": 2,
+        "effects": {
+          "kpi": 10,
+          "mgmt": 8,
+          "popularity": -8,
+          "risk": 12
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "政策之外，再协调一块宅基地",
+        "costAp": 1,
+        "effects": {
+          "kpi": 6,
+          "popularity": 6,
+          "risk": 10,
+          "energy": -8
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "继续上门，把政策讲透",
+        "costAp": 0,
+        "effects": {
+          "energy": -8,
+          "kpi": -4,
+          "ability": 2
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_town_k_secret_photo_check",
+    "title": "暗访组的照片",
+    "npcName": "包村干部 小林",
+    "unitType": "基层乡镇",
+    "bands": [
+      "科级"
+    ],
+    "theme": "daily",
+    "description": "县里第三方暗访组拍了照，你包的村有三处垃圾堆放点，整改期限三天。清理费要镇里先垫，财政所推说账上没钱，让你自己去协调一下。照片已经进了县里的整改台账，逾期不销号，年底考核要扣分。包村干部小林站在门口，等你拿主意。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "先垫钱请保洁队清干净",
+        "costAp": 1,
+        "effects": {
+          "kpi": 8,
+          "mgmt": 6,
+          "risk": 8,
+          "energy": -6
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "发动党员村干部义务劳动",
+        "costAp": 1,
+        "effects": {
+          "kpi": 6,
+          "authority": 5,
+          "popularity": -6,
+          "energy": -10
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "先把整改照片报上去",
+        "costAp": 0,
+        "effects": {
+          "kpi": 2,
+          "risk": 12,
+          "energy": -4
+        }
+      }
+    ]
+  }
+]

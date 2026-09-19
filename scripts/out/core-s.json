@@ -1,0 +1,280 @@
+[
+  {
+    "id": "evt_core_s_midnight_data_check",
+    "title": "深夜的增速差",
+    "npcName": "省委副秘书长 老陈",
+    "unitType": "核心部门",
+    "bands": [
+      "省部级"
+    ],
+    "theme": "daily",
+    "description": "夜里十一点，办公厅的灯还亮着。副秘书长把明天全省经济工作会的讲话稿放到你桌上：两个市上报的规上工业增速，与统计口径差了近一个百分点。一把手明早要拿这份材料对上汇报。老陈说，原则上以统计局的数据为准，可那样某个市今年的成绩单就不好看，要不要请统计局再协调一下。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "按统计口径报，谁难看谁难看",
+        "costAp": 1,
+        "effects": {
+          "authority": 8,
+          "ability": 5,
+          "popularity": -8,
+          "kpi": -4
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "请统计局协调一下口径",
+        "costAp": 1,
+        "effects": {
+          "kpi": 8,
+          "mgmt": 8,
+          "risk": 15,
+          "ability": -4
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "先放一放，会上口头说明",
+        "costAp": 0,
+        "effects": {
+          "energy": 5,
+          "mgmt": -8,
+          "kpi": -6,
+          "risk": 8
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_core_s_cadre_battle",
+    "title": "市委书记人选",
+    "npcName": "组织部副部长 老韩",
+    "unitType": "核心部门",
+    "bands": [
+      "省部级"
+    ],
+    "theme": "daily",
+    "description": "组织部把市委书记人选的比选材料送上来。一位在省里多年，敢碰硬，前年处置一起群体事件时得罪了几位老同志；另一位履历干净、口碑温和，上面有人打过招呼。老韩把两份材料并排摆在桌上，说材料都按程序做了，剩下的是组织上的考虑。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "用敢碰硬的那一个",
+        "costAp": 2,
+        "effects": {
+          "authority": 10,
+          "ability": 6,
+          "mgmt": -10,
+          "popularity": -6
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "用上面打过招呼的那个",
+        "costAp": 1,
+        "effects": {
+          "mgmt": 10,
+          "popularity": 6,
+          "risk": 10,
+          "ability": -6
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "让组织部再考察一轮",
+        "costAp": 0,
+        "effects": {
+          "energy": 5,
+          "mgmt": -6,
+          "kpi": -5,
+          "risk": 8
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_core_s_project_tug_of_war",
+    "title": "项目落哪个市",
+    "npcName": "省发改委主任 老周",
+    "unitType": "核心部门",
+    "bands": [
+      "省部级"
+    ],
+    "theme": "daily",
+    "description": "一个新能源整车项目要在全省布点，两个市都递了申请。一个配套齐全但地方债务压力大，一个书记刚在会上表过态、地价便宜，产业链却是空的。国家给的能耗指标只够一家。发改委主任说，原则上按产业布局规划办，可规划本身也是可以灵活把握的。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "按产业配套，落在甲市",
+        "costAp": 2,
+        "effects": {
+          "ability": 8,
+          "authority": 6,
+          "popularity": -8,
+          "kpi": 6
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "给在会上表过态的那个市",
+        "costAp": 1,
+        "effects": {
+          "mgmt": 10,
+          "kpi": 6,
+          "risk": 12,
+          "popularity": -4
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "报请上会，集体研究",
+        "costAp": 0,
+        "effects": {
+          "kpi": -8,
+          "mgmt": -5,
+          "ability": -3,
+          "risk": 8
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_core_s_inspection_rectify",
+    "title": "巡视反馈之后",
+    "npcName": "巡视组联络员 老赵",
+    "unitType": "核心部门",
+    "bands": [
+      "省部级"
+    ],
+    "theme": "daily",
+    "description": "中央巡视组反馈的问题清单里有一条，指向你分管领域的专项资金闲置两年未动。办公厅报上来的整改方案写着要见人见事，可责任只落到两个处级干部头上。联络人临走时提醒一句：这一条，是要列入回头看范围的。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "整改到底，把厅局的问题翻透",
+        "costAp": 2,
+        "effects": {
+          "authority": 8,
+          "ability": 5,
+          "risk": -10,
+          "popularity": -10,
+          "mgmt": -5
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "就按现有稿子，处分到处级",
+        "costAp": 1,
+        "effects": {
+          "mgmt": 6,
+          "popularity": 5,
+          "risk": 18,
+          "authority": -5
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "先约谈厅局主要负责人",
+        "costAp": 0,
+        "effects": {
+          "popularity": -6,
+          "ability": -4,
+          "energy": -4,
+          "risk": 8
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_core_s_debt_vs_growth",
+    "title": "稳增长还是化债",
+    "npcName": "省财政厅厅长 老李",
+    "unitType": "核心部门",
+    "bands": [
+      "省部级"
+    ],
+    "theme": "daily",
+    "description": "中央要求严控新增隐性债务，可省里几个市的平台公司正等着新开工项目续命。财政厅长把两套口径摆在你面前：一套对得上中央要求，一套保得住今年的投资增速。主要领导要你拿个意见，下周一上常委会。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "严格按化债口径上报",
+        "costAp": 2,
+        "effects": {
+          "ability": 8,
+          "risk": -10,
+          "kpi": -8,
+          "popularity": -8
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "保投资增速，先开工后规范",
+        "costAp": 1,
+        "effects": {
+          "kpi": 10,
+          "mgmt": 8,
+          "risk": 20,
+          "ability": -5
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "建议分市施策，不下统一口径",
+        "costAp": 0,
+        "effects": {
+          "authority": -5,
+          "kpi": -4,
+          "mgmt": -3,
+          "risk": 9
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_core_s_blast_public_opinion",
+    "title": "爆燃之后",
+    "npcName": "省委宣传部长 老吴",
+    "unitType": "核心部门",
+    "bands": [
+      "省部级"
+    ],
+    "theme": "daily",
+    "description": "省内一化工园区爆燃的视频在外面传开了，伤亡数字还没最终核定。宣传部长拿着三套口径来请示：一套据实发布，一套只说正在核实，一套先压热度等调查组结论。你分管安全生产，明天上午省里要对外发声。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "据实发布，同步启动问责",
+        "costAp": 2,
+        "effects": {
+          "authority": 8,
+          "ability": 5,
+          "risk": -8,
+          "kpi": -6,
+          "popularity": -6
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "只说正在核实，先拖一拖",
+        "costAp": 1,
+        "effects": {
+          "mgmt": 6,
+          "kpi": 5,
+          "risk": 15,
+          "popularity": -5
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "压热度，等调查组结论",
+        "costAp": 0,
+        "effects": {
+          "risk": 18,
+          "authority": -8,
+          "popularity": -5,
+          "energy": 5
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,231 @@
+[
+  {
+    "id": "evt_core_k_deepnight_draft",
+    "title": "深夜改稿",
+    "npcName": "分管副主任 老陈",
+    "unitType": "核心部门",
+    "bands": [
+      "科级"
+    ],
+    "theme": "daily",
+    "description": "晚上十一点，明早八点半全市大会上书记要讲话，稿子你已经改到第三稿。分管副主任老陈把你叫到办公室，说书记那边传话，第二部分要往对标对表上靠，去年那个没达标的数字，含糊处理一下就行。你心里清楚，那个数是督查室核过的，白纸黑字。老陈点上烟，说改完先给他看。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "连夜改，把数字含糊过去",
+        "costAp": 1,
+        "effects": {
+          "energy": -12,
+          "health": -6,
+          "mgmt": 8,
+          "risk": 8
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "保留原数，另附情况说明",
+        "costAp": 1,
+        "effects": {
+          "authority": 6,
+          "ability": 8,
+          "mgmt": -8,
+          "energy": -8
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "先不动，明早再说",
+        "costAp": 0,
+        "effects": {
+          "risk": 10,
+          "energy": -5,
+          "mgmt": -3
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_core_k_coordination_meeting",
+    "title": "协调会僵局",
+    "npcName": "某局科长 老李",
+    "unitType": "核心部门",
+    "bands": [
+      "科级"
+    ],
+    "theme": "daily",
+    "description": "主任交代你牵头协调一件事，会议室里两个局的科长谁也不肯先签字，都说不归自己管。你的级别和他们一样，说话没分量。会开了两个小时，纪要还空着分工那一栏。主任说，今天必须形成纪要，责任要压实到具体单位，明天他要用。窗外天已经擦黑。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "搬出主任，说这是他的意思",
+        "costAp": 1,
+        "effects": {
+          "authority": 6,
+          "mgmt": 4,
+          "popularity": -8,
+          "risk": 6,
+          "energy": -6
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "纪要写成分工待明确",
+        "costAp": 0,
+        "effects": {
+          "kpi": -6,
+          "authority": -4,
+          "risk": 8
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "当场分工，自己单位兜底",
+        "costAp": 2,
+        "effects": {
+          "kpi": 10,
+          "authority": 8,
+          "risk": 10,
+          "energy": -12,
+          "health": -6
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_core_k_cadre_review",
+    "title": "考察材料",
+    "npcName": "考察组同事 小郑",
+    "unitType": "核心部门",
+    "bands": [
+      "科级"
+    ],
+    "theme": "daily",
+    "description": "部里安排你参加一名拟提拔干部的考察。谈话中有人反映，这位同志上一摊工作里有一笔经费去向不太清楚，说得很含糊，末了加一句，你心里有数就行。考察材料明天上会。这位同志平时对你不错，他的分管领导也打过招呼，说组织上会考虑的。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "如实写，不给结论只列事实",
+        "costAp": 1,
+        "effects": {
+          "authority": 8,
+          "ability": 6,
+          "popularity": -10,
+          "mgmt": -6,
+          "energy": -8
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "材料不写，口头向部长汇报",
+        "costAp": 1,
+        "effects": {
+          "mgmt": 6,
+          "popularity": 4,
+          "risk": 10,
+          "energy": -6
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "线索转分管副部长，自己退",
+        "costAp": 0,
+        "effects": {
+          "risk": 8,
+          "ability": -4,
+          "popularity": -2
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_core_k_inspection_reception",
+    "title": "接待方案",
+    "npcName": "办公室副主任 老周",
+    "unitType": "核心部门",
+    "bands": [
+      "科级"
+    ],
+    "theme": "daily",
+    "description": "上级调研组后天到，一行六人。办公室拟的接待方案里，住宿和用餐都比规定高了一档，老周说这是惯例，兄弟单位都这么办，走会议费科目就行。方案上有一栏要科室负责人签字报批。你只是个科室负责人，签了字，这笔账就挂在你名下。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "按惯例签，方案报上去",
+        "costAp": 1,
+        "effects": {
+          "mgmt": 8,
+          "popularity": 6,
+          "risk": 12,
+          "energy": -4
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "压回规定标准，得罪人",
+        "costAp": 1,
+        "effects": {
+          "authority": 8,
+          "ability": 4,
+          "popularity": -8,
+          "mgmt": -6
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "方案退回，让他们自己签",
+        "costAp": 0,
+        "effects": {
+          "risk": 8,
+          "popularity": -6,
+          "mgmt": -4
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_core_k_duty_call",
+    "title": "夜班电话",
+    "npcName": "值班员 老刘",
+    "unitType": "核心部门",
+    "bands": [
+      "科级"
+    ],
+    "theme": "daily",
+    "description": "夜里两点，你值夜班，电话响了。下面报上来一件事，暂时没有人员伤亡，但情况还在发展。对方说，先口头跟您报一声，等天亮了、情况明朗了再正式上报，免得惊动上面。你打主任的电话，关机。值班日志摊在桌上，落笔就是留痕。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "按程序立即上报，不等",
+        "costAp": 1,
+        "effects": {
+          "authority": 8,
+          "ability": 6,
+          "mgmt": -4,
+          "energy": -8,
+          "risk": -6
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "先电话告知副主任，等天亮",
+        "costAp": 1,
+        "effects": {
+          "mgmt": 4,
+          "popularity": 4,
+          "risk": 10,
+          "energy": -4
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "先压着，自己盯着，天亮再说",
+        "costAp": 0,
+        "effects": {
+          "risk": 14,
+          "energy": -8,
+          "health": -4
+        }
+      }
+    ]
+  }
+]

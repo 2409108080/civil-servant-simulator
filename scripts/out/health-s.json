@@ -1,0 +1,99 @@
+[
+  {
+    "id": "evt_common_s_health_report_shelved",
+    "title": "体检报告压了一周",
+    "npcName": "保健医生 老郑",
+    "unitType": "通用",
+    "bands": [
+      "省部级"
+    ],
+    "theme": "health",
+    "description": "年度体检报告送到干部保健办，冠脉、肝功、血压几项都标了红，老郑建议你立即住院做造影。可三天后是全省经济工作调度会，你要代表省政府讲话；中央生态环保督察组下月进驻，迎检方案还压在你案头。老伴在电话那头哭，秘书拿着行程表站在门口，等你一句话。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "今天就办住院，会议请分管的同志去讲",
+        "costAp": 1,
+        "effects": {
+          "energy": 8,
+          "health": 18,
+          "kpi": -10,
+          "mgmt": -5,
+          "authority": -4
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "报告锁进抽屉，会议照开、迎检照盯",
+        "costAp": 0,
+        "effects": {
+          "health": -18,
+          "energy": -10,
+          "kpi": 6,
+          "risk": 10
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "上午输液，下午让秘书把文件送进病房",
+        "costAp": 2,
+        "effects": {
+          "energy": -10,
+          "health": 8,
+          "kpi": 5,
+          "mgmt": 6,
+          "risk": 10
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_common_s_family_transfer_pressure",
+    "title": "老伴把组织部请来了",
+    "npcName": "老伴 秀兰",
+    "unitType": "通用",
+    "bands": [
+      "省部级"
+    ],
+    "theme": "health",
+    "description": "住院第三天，老伴把组织部的一位老熟人请到病房外的走廊，说可以协调你去省人大专门委员会，事少、压力小，也算体面。女儿从国外打来电话，只说了一句「爸，你今年六十三了」。可你分管的那条线正卡在关键节点，汛期将至，化工园区搬迁方案下周上会。老伴把削好的苹果放在床头，等你一句话。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "让老伴回话，组织上怎么安排都服从",
+        "costAp": 1,
+        "effects": {
+          "health": 16,
+          "energy": 10,
+          "kpi": -12,
+          "mgmt": -6,
+          "authority": -6
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "当场回绝：这条线不交，谁也别插手",
+        "costAp": 0,
+        "effects": {
+          "health": -20,
+          "energy": -8,
+          "authority": 8,
+          "kpi": 4,
+          "popularity": -8
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "让秘书去组织部那边协调一下，先挂着",
+        "costAp": 2,
+        "effects": {
+          "risk": 14,
+          "mgmt": 6,
+          "kpi": 3,
+          "health": -10,
+          "popularity": -4
+        }
+      }
+    ]
+  }
+]

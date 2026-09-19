@@ -1,0 +1,48 @@
+[
+  {
+    "id": "evt_common_c_hanxun_notice",
+    "title": "函询通知书",
+    "npcName": "市纪委 陈主任",
+    "unitType": "通用",
+    "bands": [
+      "处级"
+    ],
+    "theme": "risk",
+    "description": "市纪委的函询通知书是机要员送来的，牛皮纸信封，落款监督室，要你一个月内就三年前那笔企业赞助的赴外考察作出书面说明。陈主任电话里语气客气：「按程序办，说清楚就行。」可那几张发票是怎么凑的，你比谁都清楚。笔记本摊在面前，第一个字写了半个钟头没落下去。说到哪一步，你得掂量。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "如实写清发票的来龙去脉",
+        "costAp": 2,
+        "effects": {
+          "risk": -15,
+          "authority": -5,
+          "mgmt": -8,
+          "energy": -10
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "托老陈私下摸摸底，先探口风",
+        "costAp": 1,
+        "effects": {
+          "risk": 10,
+          "popularity": 5,
+          "mgmt": 3,
+          "energy": -5
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "书面回复，措辞模糊带过",
+        "costAp": 0,
+        "effects": {
+          "risk": 12,
+          "energy": -5,
+          "authority": -3,
+          "mgmt": -3
+        }
+      }
+    ]
+  }
+]

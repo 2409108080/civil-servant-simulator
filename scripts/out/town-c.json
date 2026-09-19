@@ -1,0 +1,228 @@
+[
+  {
+    "id": "evt_town_c_burning_ban_satellite",
+    "title": "火点通报之后",
+    "npcName": "分管副镇长 老陈",
+    "unitType": "基层乡镇",
+    "bands": [
+      "处级"
+    ],
+    "theme": "daily",
+    "description": "秋收刚过，省里卫星遥感火点通报下来，你们镇排了三个。分管副镇长把截图发到工作群，说现场只有一处明火，另两处是烧荒的灰烬复燃。县里电话打过来，说这事原则上要实事求是，但也要顾全大局——全市火点数，县里已经排到第二。你站在镇政府院子里，远处地里还在冒烟。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "连夜组织干部包村蹲守",
+        "costAp": 2,
+        "effects": {
+          "energy": -18,
+          "kpi": 8,
+          "popularity": -8,
+          "health": -5
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "跟县里沟通，两处按复燃上报",
+        "costAp": 1,
+        "effects": {
+          "mgmt": 8,
+          "kpi": 6,
+          "risk": 12,
+          "ability": -3
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "按程序如实上报三处火点",
+        "costAp": 0,
+        "effects": {
+          "authority": 5,
+          "mgmt": -8,
+          "kpi": -10
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_town_c_inspection_ledger",
+    "title": "迎检前夜",
+    "npcName": "党政办主任 小林",
+    "unitType": "基层乡镇",
+    "bands": [
+      "处级"
+    ],
+    "theme": "daily",
+    "description": "市里人居环境整治检查组明天一早到，路线已经定了，必经镇东那条沟。沟里的垃圾昨天清过，一场雨又冲下来不少。党政办主任抱着三本台账站在你门口，说低保评议缺了两次会议的照片，检查组要看留痕。县局分管副局长在群里发消息：对标对表，不要有思想包袱。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "连夜组织全镇干部下沟清运",
+        "costAp": 2,
+        "effects": {
+          "energy": -22,
+          "health": -6,
+          "kpi": 10,
+          "popularity": -8
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "照片的事让小林补一下",
+        "costAp": 1,
+        "effects": {
+          "risk": 14,
+          "mgmt": 8,
+          "kpi": 6,
+          "ability": -4
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "如实说明情况，缺项就缺项",
+        "costAp": 0,
+        "effects": {
+          "authority": 6,
+          "kpi": -10,
+          "mgmt": -8
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_town_c_petition_control",
+    "title": "进京访苗头",
+    "npcName": "信访办主任 老赵",
+    "unitType": "基层乡镇",
+    "bands": [
+      "处级"
+    ],
+    "theme": "daily",
+    "description": "信访办主任半夜来敲门，说老上访户李桂英买了明早的火车票，名义是去看病，包里却塞着一沓材料。那是八年前一起占地补偿的旧案，责任在上一届。县信访局的意思是这个事先稳控住，两会之前别出岔子，至于诉求，组织上会考虑的。你手边能调动的人只有四个。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "安排人跟着，到站前劝回来",
+        "costAp": 2,
+        "effects": {
+          "risk": 12,
+          "kpi": 8,
+          "mgmt": 8,
+          "popularity": -8,
+          "energy": -10
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "把旧案翻出来，重新核定补偿",
+        "costAp": 1,
+        "effects": {
+          "ability": 8,
+          "authority": 6,
+          "kpi": -8,
+          "energy": -12
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "按程序报送，交县里处理",
+        "costAp": 0,
+        "effects": {
+          "mgmt": -10,
+          "kpi": -6,
+          "popularity": -4
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_town_c_flood_evacuation",
+    "title": "雨夜转移",
+    "npcName": "包村干部 小吴",
+    "unitType": "基层乡镇",
+    "bands": [
+      "处级"
+    ],
+    "theme": "daily",
+    "description": "暴雨红色预警，上游水库准备泄洪，镇北沿河三个村天亮前必须转移。包村干部回来说，北岸还有七户不肯走，其中一户老人瘫在床上，儿子在外打工，儿媳妇说实在挪不动。水位离堤顶还有一米二。县防指要求每小时报一次进度，压实责任。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "带人挨家挨户背出来",
+        "costAp": 2,
+        "effects": {
+          "energy": -20,
+          "health": -8,
+          "authority": 10,
+          "kpi": 6
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "签责任书，交给村干部包户",
+        "costAp": 1,
+        "effects": {
+          "risk": 12,
+          "energy": -6,
+          "mgmt": 4,
+          "popularity": -6
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "等天亮看看水情再说",
+        "costAp": 0,
+        "effects": {
+          "risk": 15,
+          "kpi": -10,
+          "popularity": -4
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_town_c_investment_permit",
+    "title": "领导介绍的项目",
+    "npcName": "招商办主任 老钱",
+    "unitType": "基层乡镇",
+    "bands": [
+      "处级"
+    ],
+    "theme": "daily",
+    "description": "农产品加工项目要落户镇工业园，投资三千万，能解决六十个就业，县里今年的考核指标就指着它。老板说环保设备还没到位，先开工后补手续，环评那边他自己去协调。这人是分管副县长的远房亲戚，招商办主任提醒你，项目是县里的「一把手工程」。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "先签协议，手续边建边补",
+        "costAp": 2,
+        "effects": {
+          "kpi": 15,
+          "mgmt": 10,
+          "risk": 18,
+          "ability": -5
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "环保手续齐了再供地",
+        "costAp": 1,
+        "effects": {
+          "authority": 10,
+          "ability": 6,
+          "kpi": -12,
+          "mgmt": -8
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "按程序报县里研究",
+        "costAp": 0,
+        "effects": {
+          "authority": 4,
+          "mgmt": -6,
+          "kpi": -8
+        }
+      }
+    ]
+  }
+]

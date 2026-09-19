@@ -1,0 +1,286 @@
+[
+  {
+    "id": "evt_town_s_village_gate_stop",
+    "title": "村口被拦下的车",
+    "npcName": "乡镇党委书记 老陈",
+    "unitType": "基层乡镇",
+    "bands": [
+      "省部级"
+    ],
+    "theme": "daily",
+    "description": "你以调研名义轻车简从进镇，车刚过村口就被一群村民拦住。反映的是两年前一个征地项目的补偿款，县里说已按标准发放，村民说签字是代签的。随行的市县干部脸色发白，悄悄问你要不要绕路走。车窗外的雨越下越大，有人开始拍引擎盖。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "停车，当场接访听诉求",
+        "costAp": 1,
+        "effects": {
+          "energy": -12,
+          "authority": 8,
+          "popularity": 8,
+          "mgmt": -5,
+          "risk": 3
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "让秘书登记，转市县办理",
+        "costAp": 0,
+        "effects": {
+          "mgmt": 3,
+          "popularity": -5,
+          "kpi": -3,
+          "risk": 8
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "现场表态，把补偿标准往上抬",
+        "costAp": 2,
+        "effects": {
+          "kpi": 10,
+          "popularity": 10,
+          "authority": 6,
+          "risk": 14,
+          "energy": -15
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_town_s_fresh_ledger",
+    "title": "墨迹没干的台账",
+    "npcName": "镇长 老郭",
+    "unitType": "基层乡镇",
+    "bands": [
+      "省部级"
+    ],
+    "theme": "daily",
+    "description": "镇里汇报产业园建设，会议室里材料装订整齐、数据漂亮。会后你借口看现场，转到后面的档案柜，抽出一本迎检台账，纸页还是潮的，墨迹没干透。镇长站在门口，说这是为了对标对表，怕你看着乱。你手上这本，是昨晚十一点打的。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "当场点破，要求推倒重做",
+        "costAp": 1,
+        "effects": {
+          "authority": 10,
+          "ability": 6,
+          "popularity": -8,
+          "kpi": -4,
+          "energy": -10
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "不点破，回去交督查室督办",
+        "costAp": 0,
+        "effects": {
+          "mgmt": 2,
+          "kpi": 2,
+          "ability": -3,
+          "popularity": -2,
+          "risk": 9
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "私下提醒书记，限一周整改",
+        "costAp": 1,
+        "effects": {
+          "authority": 5,
+          "popularity": 4,
+          "risk": 7,
+          "energy": -12
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_town_s_mushroom_project",
+    "title": "样板项目的账",
+    "npcName": "分管副镇长 小刘",
+    "unitType": "基层乡镇",
+    "bands": [
+      "省部级"
+    ],
+    "theme": "daily",
+    "description": "你包联的这个镇，去年引进的食用菌项目成了市里的样板。老板通过县里老关系递话，说省里的专项资金早一天到账，就能早一天扩产，还提到愿意支持镇里的公益事业。项目材料你翻过，产能数据有水分。分管副镇长在门外等着回话。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "按标准走评审程序",
+        "costAp": 1,
+        "effects": {
+          "ability": 8,
+          "authority": 6,
+          "popularity": -6,
+          "kpi": -3,
+          "energy": -8
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "打个招呼，资金优先拨付",
+        "costAp": 2,
+        "effects": {
+          "kpi": 12,
+          "mgmt": 8,
+          "risk": 18,
+          "popularity": -5,
+          "energy": -8
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "这个事先放一放",
+        "costAp": 0,
+        "effects": {
+          "kpi": -4,
+          "popularity": -2,
+          "mgmt": -3,
+          "energy": -5
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_town_s_dry_tap_water",
+    "title": "院门外的水桶",
+    "npcName": "村支书 老韩",
+    "unitType": "基层乡镇",
+    "bands": [
+      "省部级"
+    ],
+    "theme": "daily",
+    "description": "蹲点的第三天，几个村民堵住你住处的院门，手里拎着发黄的水桶。三年前的饮水工程修了一半停工，水管埋进地里就没再通水，村里老人要去两里外挑水。市水利局的同志解释，资金已经拨付到位，是镇里配套没跟上。镇党委书记低着头，一声不吭。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "现场办公，协调追加资金",
+        "costAp": 2,
+        "effects": {
+          "kpi": 10,
+          "popularity": 12,
+          "mgmt": -6,
+          "risk": 6,
+          "energy": -15
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "责成市县限期整改",
+        "costAp": 1,
+        "effects": {
+          "mgmt": 8,
+          "authority": 6,
+          "kpi": 3,
+          "popularity": -5
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "作个批示，回去再说",
+        "costAp": 0,
+        "effects": {
+          "popularity": -6,
+          "kpi": -3,
+          "mgmt": 2,
+          "authority": -3
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_town_s_night_visit_cadre",
+    "title": "夜里十点的敲门声",
+    "npcName": "镇党委书记 老陈",
+    "unitType": "基层乡镇",
+    "bands": [
+      "省部级"
+    ],
+    "theme": "daily",
+    "description": "夜里十点，镇党委书记敲门进来，汇报完工作不肯走，说这些年招来的年轻人三年走了五个，想请省里在编制和政策上给个口子，顺带提起自己侄子是农校毕业的，愿意扎根基层。茶杯续了两次，他一直在等你表态。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "明确表态，一律按程序考录",
+        "costAp": 1,
+        "effects": {
+          "authority": 8,
+          "ability": 5,
+          "popularity": -8,
+          "energy": -8
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "组织上会考虑的",
+        "costAp": 0,
+        "effects": {
+          "mgmt": 3,
+          "popularity": -2,
+          "kpi": -3,
+          "risk": 2
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "特事特办，先给个周转编",
+        "costAp": 2,
+        "effects": {
+          "popularity": 8,
+          "kpi": 6,
+          "risk": 16,
+          "authority": -6
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_town_s_storm_night",
+    "title": "后山下来的雨",
+    "npcName": "值班副镇长 老吴",
+    "unitType": "基层乡镇",
+    "bands": [
+      "省部级"
+    ],
+    "theme": "daily",
+    "description": "你在镇上住夜，凌晨两点被雨声惊醒。值班的副镇长来报，后山地质灾害隐患点水位上涨，山下还住着十几户，其中三户是老人。按预案，转移要市县点头，可电话打过去，市里领导还在路上。窗外雨越急，镇干部都在院子里等着。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "连夜组织，先把人撤下来",
+        "costAp": 2,
+        "effects": {
+          "authority": 10,
+          "popularity": 10,
+          "kpi": 8,
+          "health": -15,
+          "energy": -20
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "电话督市县按预案处置",
+        "costAp": 1,
+        "effects": {
+          "mgmt": 5,
+          "ability": 3,
+          "popularity": -8,
+          "kpi": -4
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "等天亮，视雨情再定",
+        "costAp": 0,
+        "effects": {
+          "risk": 10,
+          "kpi": -6,
+          "popularity": -5,
+          "authority": -4
+        }
+      }
+    ]
+  }
+]

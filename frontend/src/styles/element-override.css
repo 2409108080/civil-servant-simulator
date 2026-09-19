@@ -1,0 +1,973 @@
+/*
+ * Element 组件覆写层 —— 把 Element UI 的"互联网皮肤"整体换成公文纸。
+ *
+ * 为什么单独一个文件：Element 的默认外观是一整套**成体系**的现代 Web 设计——
+ * 科技蓝 #409EFF、成功绿 #67C23A、4px 圆角、悬浮投影、无衬线字体。
+ * 这不是"某个组件颜色不对"，而是"这套语言整个不属于这个游戏"。
+ * 逐页去改，改到第十个页面就会开始漏——漏的地方不报错，只是某天
+ * 玩家在成绩单里看见一枚蓝标签。
+ *
+ * 所以这里按**组件**清点，而不是按页面清点：每个 Element 组件在这里
+ * 恰好有一处定义。页面里不再写任何 .el-* 选择器（页面只管自己的排版）。
+ *
+ * 加载顺序：main.js 里必须排在 element-ui 的样式**之后**，
+ * 而且排在 theme.css 之后——theme.css 只放设计令牌，本文件是令牌的消费者。
+ *
+ * 特权说明：本文件允许用 !important。这不是懒，是必要的——
+ *   · el-dialog 的 width / margin-top 是**行内 style**（Element 把组件的
+ *     width 属性直接写进 node.style），没有 !important 根本压不住；
+ *   · el-progress 的 height 同理由 stroke-width 属性写成行内 style；
+ *   · 最末一节是兜底块，针对的是"以后新加组件时从别处冒出来的默认色"，
+ *     那里的 !important 是刻意的防御，不是常规手段。
+ */
+
+/* ═══════════════════════ 0. 全局骨架：字体 / 圆角 / 阴影 ═══════════════════════
+   三件事一次定死，后面每个组件就不必再各写一遍。
+   注意不用 `* { border-radius: 0 }` 这种一刀切：页面里有**故意做成圆的**东西
+   （行动力圆点 .ap-dot、选项角标 .option-key），一刀切会把它们压成方块。
+   所以"去圆角"只作用在 Element 组件上，页面自己的类由各自文件负责。 */
+
+/* 宋体落地。公文的正文就是宋体，标题可以用楷体——
+   原先整个应用跑在 Element 的 "Helvetica Neue / PingFang SC" 上，
+   字一出来就是"网页"，纸做得再像也没用。
+   Songti SC 走 macOS，SimSun 走 Windows，最后兜 serif。 */
+html,
+body {
+  font-family: "Songti SC", "SimSun", "STSong", "Noto Serif CJK SC", serif;
+}
+
+/* 表单控件在浏览器里默认不继承字体（走系统 UI 字体），
+   不显式接上的话，输入框和按钮会自己变回无衬线，跟正文不是一套字。 */
+button,
+input,
+textarea,
+select,
+.el-button,
+.el-input__inner,
+.el-textarea__inner {
+  font-family: inherit;
+}
+
+/* 去掉所有阴影。Element 的投影是"卡片浮在页面上"的意思，
+   而纸是**摊在桌上**的——投影一出来，纸就变成了一块屏。
+   这里只清 Element 组件的；页面自己写的那几处分别在各自文件里清。 */
+.el-card,
+.el-button,
+.el-dialog,
+.el-alert,
+.el-notification,
+.el-message,
+.el-message-box,
+.el-popper,
+.el-tooltip__popper,
+.el-select-dropdown,
+.el-dropdown-menu,
+.el-collapse,
+.el-collapse-item__header,
+.el-collapse-item__wrap,
+.el-progress-bar__outer,
+.el-progress-bar__inner,
+.el-loading-mask,
+.el-badge__content {
+  box-shadow: none;
+}
+
+/* ═══════════════════════════ 1. 卡片 el-card ═══════════════════════════
+   双层框：外层 1px 深红实线（文件的封皮），内层 1px 淡红虚线（装订线）。
+   内层用 outline + 负 offset 而不是套一层 border，是因为 outline 不占盒模型——
+   套 border 会把卡片内容整体往里挤 1px，几处对齐会跟着挪。 */
+.el-card {
+  background-color: var(--paper-card);
+  border: 1px solid var(--gov-red);
+  border-radius: 0;
+  outline: 1px dashed var(--gov-red-line);
+  outline-offset: -5px;
+  color: var(--ink);
+}
+
+.el-card__header {
+  border-bottom: 1px solid var(--gov-red-line);
+  padding: 14px 20px;
+  color: var(--ink-title);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.el-card__body {
+  color: var(--ink);
+}
+
+/* 主卡片：红头再压粗一档。一屏里通常只有一张，其余卡片保持细框，
+   层级靠这条顶边的粗细区分，不靠投影。 */
+.el-card.gov-card--primary {
+  border-top: 3px solid var(--gov-red);
+}
+
+/* ═══════════════════════════ 2. 按钮 el-button ═══════════════════════════
+   这套游戏的按钮只承担两种语义，所以只做两种：
+     实底红 = "推进工作"（推荐你做的事）
+     描边   = 其余一切（次要、危险、返回）
+   实底红绝不给第二个按钮用——多给一个，主操作就不再是视觉上的第一顺位。
+
+   下面先清 Element 的四套类型色（primary 蓝 / success 绿 / info 灰蓝 /
+   danger 亮红），再定义自己的 .gov-btn 家族。 */
+
+/* Element 的 type="primary"：实底红、无阴影、无圆角 */
+.el-button--primary {
+  background-color: var(--gov-red) !important;
+  border-color: var(--gov-red) !important;
+  color: var(--on-red) !important;
+  border-radius: 0 !important;
+}
+
+.el-button--primary:hover,
+.el-button--primary:focus,
+.el-button--primary:active {
+  background-color: var(--gov-red-dark) !important;
+  border-color: var(--gov-red-dark) !important;
+  color: #fff !important;
+}
+
+/* type="success" / "info"：一律降级成描边次要按钮。
+   它们本来承载的"成功/提示"语义，在这个界面里没有对应的视觉位置。 */
+.el-button--success,
+.el-button--info {
+  background-color: transparent !important;
+  border-color: var(--line-warm) !important;
+  color: var(--ink-sub) !important;
+  border-radius: 0 !important;
+}
+
+.el-button--success:hover,
+.el-button--info:hover,
+.el-button--success:focus,
+.el-button--info:focus {
+  border-color: var(--gov-red) !important;
+  color: var(--gov-red) !important;
+  background-color: transparent !important;
+}
+
+/* type="danger"：红字红描边，不给实底——实底红的意思是"这是推荐你做的事"，
+   而危险操作恰恰相反。 */
+.el-button--danger {
+  background-color: transparent !important;
+  border-color: var(--gov-red-line) !important;
+  color: var(--gov-red) !important;
+  border-radius: 0 !important;
+}
+
+.el-button--danger:hover,
+.el-button--danger:focus {
+  border-color: var(--gov-red) !important;
+  background-color: rgba(192, 57, 43, 0.07) !important;
+  color: var(--gov-red-dark) !important;
+}
+
+/* type="text"：Element 把它染成科技蓝，是这层里最容易漏的一处
+   （Profile 页的"继续上一局"就挂在这上面）。 */
+.el-button--text {
+  color: var(--gov-red) !important;
+  background: transparent !important;
+  border-color: transparent !important;
+  border-radius: 0 !important;
+}
+
+.el-button--text:hover,
+.el-button--text:focus {
+  color: var(--gov-red-dark) !important;
+}
+
+/* 默认无类型按钮：Element 给的是白底冷灰边 + 悬停变蓝 */
+.el-button {
+  border-radius: 0;
+  background-color: var(--paper-card);
+  border-color: var(--line-warm);
+  color: var(--ink-sub);
+}
+
+.el-button:hover,
+.el-button:focus {
+  background-color: var(--paper-card);
+  border-color: var(--gov-red);
+  color: var(--gov-red);
+}
+
+/* 按钮里的加载转圈也是蓝的 */
+.el-button .el-icon-loading {
+  color: inherit;
+}
+
+/* ── 自造按钮：主操作 ──
+   不用 type="primary"，是因为 Element 的 primary 带 :hover/:focus/:active
+   一整串变体，逐一覆盖容易漏一个，漏的那个会在某个交互态突然变蓝。
+   自己起类，样式只有一个来源。 */
+.el-button.gov-btn {
+  height: 40px;
+  padding: 0 22px;
+  border: none;
+  border-radius: 0;
+  background-color: var(--gov-red);
+  color: var(--on-red);
+  font-size: 15px;
+  letter-spacing: 2px;
+  box-shadow: none;
+  transition: background-color 0.18s ease, transform 0.12s ease;
+}
+
+/* 悬浮：颜色加深并向下压 1px。压的这一下是"盖章按下去"的手感，
+   原先靠底部一道实心阴影撑着，现在阴影全去了，改成纯位移。 */
+.el-button.gov-btn:hover,
+.el-button.gov-btn:focus {
+  background-color: var(--gov-red-dark);
+  border: none;
+  color: #fff;
+  transform: translateY(1px);
+  box-shadow: none;
+}
+
+.el-button.gov-btn:active {
+  background-color: var(--gov-red-deep);
+  transform: translateY(2px);
+  box-shadow: none;
+}
+
+/* Element 在 loading 时会给按钮蒙一层 35% 白纱，压到红底上发灰 */
+.el-button.gov-btn.is-loading:before {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.gov-btn--block {
+  width: 100%;
+}
+
+/* ── 自造按钮：次要操作（透明底 + 暖描边 + 墨色字） ── */
+.el-button.gov-btn--ghost {
+  height: 32px;
+  padding: 0 14px;
+  border: 1px solid var(--line-warm);
+  border-radius: 0;
+  background-color: transparent;
+  color: var(--ink-sub);
+  font-size: 13px;
+  letter-spacing: 0;
+  box-shadow: none;
+}
+
+.el-button.gov-btn--ghost:hover,
+.el-button.gov-btn--ghost:focus {
+  border-color: var(--gov-red);
+  background-color: var(--paper-card);
+  color: var(--gov-red);
+}
+
+/* ── 自造按钮：危险操作（红字红描边，重新开始那种） ── */
+.el-button.gov-btn--outline {
+  height: 32px;
+  padding: 0 14px;
+  border: 1px solid var(--gov-red-line);
+  border-radius: 0;
+  background-color: transparent;
+  color: var(--gov-red);
+  font-size: 13px;
+  letter-spacing: 0;
+  box-shadow: none;
+}
+
+.el-button.gov-btn--outline:hover,
+.el-button.gov-btn--outline:focus {
+  border-color: var(--gov-red);
+  background-color: rgba(192, 57, 43, 0.07);
+  color: var(--gov-red-dark);
+}
+
+/* ═══════════════════════ 3. 输入框 / 表单 el-input el-form ═══════════════════════
+   虚线边框是刻意的：这是"填表"，不是"输入框"。聚焦时变体制红、且**无发光**——
+   Element 默认的聚焦态是一圈蓝色 halo，那是"科技产品"的语言。 */
+.el-input__inner {
+  background-color: var(--paper-card);
+  border: 1px dashed var(--line-warm);
+  border-radius: 0;
+  color: var(--ink);
+  box-shadow: none;
+  font-family: inherit;
+}
+
+.el-input__inner::placeholder,
+.el-textarea__inner::placeholder {
+  color: var(--ink-faint);
+}
+
+.el-input__inner:hover,
+.el-textarea__inner:hover {
+  border-color: var(--gov-red-line);
+  box-shadow: none;
+}
+
+.el-input__inner:focus,
+.el-textarea__inner:focus,
+.el-select .el-input.is-focus .el-input__inner,
+.el-select .el-input__inner:focus {
+  border-color: var(--gov-red);
+  box-shadow: none;
+  outline: 0;
+}
+
+.el-textarea__inner {
+  background-color: var(--paper-card);
+  border: 1px dashed var(--line-warm);
+  border-radius: 0;
+  color: var(--ink);
+  font-family: inherit;
+}
+
+.el-form-item__label {
+  color: var(--ink-title);
+  font-weight: 400;
+}
+
+/* 下拉面板 / 选择器：纸底 + 暖描边，选中项的红不再是蓝 */
+.el-select-dropdown,
+.el-dropdown-menu,
+.el-picker-panel {
+  background-color: var(--paper-card);
+  border: 1px solid var(--line-warm);
+  border-radius: 0;
+}
+
+.el-select-dropdown__item.hover,
+.el-select-dropdown__item:hover,
+.el-dropdown-menu__item:not(.is-disabled):hover {
+  background-color: rgba(192, 57, 43, 0.06);
+  color: var(--gov-red);
+}
+
+.el-select-dropdown__item.selected,
+.el-dropdown-menu__item--selected {
+  color: var(--gov-red);
+  font-weight: 600;
+}
+
+/* ═══════════════════════════ 4. 提示框 el-alert ═══════════════════════════
+   Element 的 alert 是四套高饱和色：成功绿 #67C23A、信息蓝 #409EFF、
+   警告橙 #E6A23C、错误红 #F56C6C。在纸底上四盏灯一起闪。
+
+   处置：error / warning 保留各自的暖色（它们承载真实语义——风险预警、
+   一票否决，玩家必须能一眼分开）；success / info 以及无类型的默认态
+   **彻底取消**，统一压成米黄底 + 体制红文字 + 红色小印章。 */
+
+.el-alert {
+  border-radius: 0;
+  padding: 10px 14px;
+  background-color: var(--paper-edge);
+  color: var(--gov-red);
+}
+
+/* 成功 / 信息 / 默认：一律走米黄底红字。
+   is-light 与默认两种 effect 都要压——Element 是按 effect 分别上色的。 */
+.el-alert.el-alert--success,
+.el-alert.el-alert--success.is-light,
+.el-alert.el-alert--info,
+.el-alert.el-alert--info.is-light {
+  background-color: var(--paper-edge) !important;
+  border: 1px solid var(--line-warm);
+  color: var(--gov-red) !important;
+}
+
+/* 那枚图标改成"红色小印章"：方框 + 红描边 + 红字，再歪一点点。
+   印章盖下去本来就是歪的，正的反而像图标。 */
+.el-alert--success .el-alert__icon,
+.el-alert--info .el-alert__icon,
+.el-alert .el-alert__icon {
+  color: var(--gov-red) !important;
+  border: 1px solid var(--gov-red);
+  border-radius: 0;
+  box-sizing: border-box;
+  width: 16px;
+  height: 16px;
+  line-height: 14px;
+  font-size: 11px;
+  text-align: center;
+  transform: rotate(-6deg);
+}
+
+.el-alert__title {
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.el-alert__description {
+  color: var(--ink-sub);
+}
+
+/* 风险预警 / 一票否决：暖色保留。
+   注意 .el-alert__icon 的印章规则在上面用了无类型选择器，
+   这里是更具体的类型选择器，能盖回来。 */
+.el-alert--error,
+.el-alert--error.is-light {
+  background-color: rgba(192, 57, 43, 0.09);
+  border: 1px solid var(--gov-red-line);
+  color: var(--gov-red);
+}
+
+.el-alert--error .el-alert__icon {
+  color: var(--gov-red) !important;
+  border-color: var(--gov-red);
+}
+
+.el-alert--warning,
+.el-alert--warning.is-light {
+  background-color: rgba(192, 138, 43, 0.13);
+  border: 1px solid rgba(192, 138, 43, 0.35);
+  color: var(--gov-amber-text);
+}
+
+.el-alert--warning .el-alert__icon {
+  color: var(--gov-amber) !important;
+  border-color: var(--gov-amber);
+}
+
+/* ═══════════════════════════ 5. 标签 el-tag ═══════════════════════════
+   Element 不带 type 的 .el-tag 底色就是科技蓝 #409EFF，而"职级""初始加成"
+   这些正是不带 type 的——不压，纸卡片上会冒出一片蓝。
+
+   语义映射：
+     职级（effect="dark"）→ 体制红实底白字。全场只有这一处实底，
+       因为职级是玩家全程唯一需要"一眼看到自己走到哪了"的东西。
+     其余一切 → 暖色描边（赭石 / 墨绿 / 体制红 / 墨色）。 */
+
+.el-tag {
+  border-radius: 0;
+  background-color: rgba(192, 138, 43, 0.1) !important;
+  border-color: rgba(192, 138, 43, 0.3) !important;
+  color: var(--gov-amber-text) !important;
+  font-family: inherit;
+}
+
+.el-tag--dark,
+.el-tag--primary {
+  background-color: var(--gov-red) !important;
+  border-color: var(--gov-red) !important;
+  color: var(--on-red) !important;
+}
+
+.el-tag--success {
+  background-color: rgba(107, 142, 90, 0.1) !important;
+  border-color: rgba(107, 142, 90, 0.3) !important;
+  color: var(--gov-olive-text) !important;
+}
+
+.el-tag--warning {
+  background-color: rgba(192, 138, 43, 0.1) !important;
+  border-color: rgba(192, 138, 43, 0.3) !important;
+  color: var(--gov-amber-text) !important;
+}
+
+.el-tag--danger,
+.el-tag--error {
+  background-color: rgba(192, 57, 43, 0.08) !important;
+  border-color: rgba(192, 57, 43, 0.28) !important;
+  color: var(--gov-red) !important;
+}
+
+.el-tag--info {
+  background-color: rgba(138, 123, 105, 0.1) !important;
+  border-color: rgba(138, 123, 105, 0.28) !important;
+  color: var(--ink-sub) !important;
+}
+
+/* ═══════════════════════════ 6. 进度条 el-progress ═══════════════════════════
+   槽底 Element 默认是冷灰 #ebeef5，压在纸卡片上像一道铅笔灰。
+   高度：Element 把 stroke-width 属性写成 .el-progress-bar__outer 的**行内**
+   height，所以这里必须 !important 才压得住——08px 是唯一的进度条高度，
+   组件上的 :stroke-width 现在是死属性，以这里为准。
+
+   颜色：条形色是组件通过 style.backgroundColor 直接赋的（走"四档状态色"，
+   见 Exam.vue 的 breakColor），本文件不碰，只保证不被 Element 默认色盖掉。 */
+.el-progress-bar__outer {
+  background-color: var(--line-warm);
+  border-radius: 0;
+  height: 8px !important;
+}
+
+.el-progress-bar__inner {
+  border-radius: 0;
+  transition: width 0.45s ease, background-color 0.45s ease;
+}
+
+.el-progress__text {
+  color: var(--ink-sub);
+  font-size: 12px !important;
+}
+
+/* ═════════════════════ 7. 分隔线 / 折叠面板 / 角标 / 加载 ═════════════════════ */
+
+/* el-divider__text 自带白底。放在纸色卡片上会是一道白斑。 */
+.el-divider {
+  background-color: var(--line-warm);
+}
+
+.el-divider__text {
+  background-color: var(--paper-card);
+  color: var(--ink-sub);
+  font-size: 13px;
+}
+
+.el-collapse,
+.el-collapse-item__header,
+.el-collapse-item__wrap {
+  border-color: var(--line-warm);
+  background-color: transparent;
+}
+
+.el-collapse-item__header {
+  color: var(--ink);
+  font-size: 14px;
+}
+
+.el-collapse-item__content {
+  color: var(--ink-title);
+  font-size: 13px;
+}
+
+.el-collapse-item__arrow {
+  color: var(--ink-faint);
+}
+
+/* el-badge 的圆点是 Element 的亮红 #f56c6c，压成体制红。
+   原先这里挂了一道纸色描边把它跟文字隔开，一并去掉——纸面上不该有浮起来的圈。 */
+.el-badge__content {
+  background-color: var(--gov-red);
+  border: none;
+  border-radius: 0;
+}
+
+.el-badge__content.is-dot {
+  background-color: var(--gov-red);
+  box-shadow: none;
+}
+
+.el-loading-mask {
+  background-color: rgba(253, 251, 247, 0.82);
+}
+
+.el-loading-spinner .path {
+  stroke: var(--gov-red);
+}
+
+.el-loading-spinner .el-loading-text {
+  color: var(--gov-red);
+}
+
+/* ═══════════════════════════ 8. 弹窗 el-dialog ═══════════════════════════
+   顶部 3px 体制红实线 = 红头。这条线是所有弹窗的共同标记，
+   所以放在基类上；.gov-dialog / .event-dialog 两个皮肤只补各自的部分。 */
+.el-dialog {
+  background-color: var(--paper-card);
+  border-top: 3px solid var(--gov-red);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.el-dialog__header {
+  padding: 18px 20px 12px;
+  border-bottom: 1px dashed var(--gov-red-faint);
+}
+
+.el-dialog__title {
+  color: var(--gov-red);
+  font-weight: 600;
+  font-family: inherit;
+}
+
+.el-dialog__body {
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.85;
+  font-family: inherit;
+}
+
+.el-dialog__headerbtn .el-dialog__close {
+  color: var(--ink-faint);
+}
+
+.el-dialog__headerbtn:hover .el-dialog__close {
+  color: var(--gov-red);
+}
+
+/* 弹窗宽度 / 顶距是组件上的 width、top 属性，Element 把它们写成
+   .el-dialog 的**行内 style**（dialog/src/component.vue 里
+   `style.marginTop = this.top; style.width = this.width`），
+   所以窄屏要改宽度只有 !important 一条路。不改属性而改这里，
+   是因为那两个值是桌面端的版面常量——为手机改小，桌面端会跟着一起窄。 */
+@media (max-width: 768px) {
+  .gov-dialog {
+    width: 90vw !important;
+    /* Element 默认 margin: 15vh auto 50px。窄屏上 15vh 的顶距会把
+       本就不高的可视区再吃掉一块，正文一长就开始滚。压到 8vh。 */
+    margin-top: 8vh !important;
+  }
+
+  .gov-dialog .el-dialog__header {
+    padding: 16px 16px 10px;
+  }
+
+  .gov-dialog .el-dialog__body {
+    padding: 16px;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  /* 弹窗里的按钮是唯一的出口（结局弹窗、存档异常弹窗都关不掉），
+     40px 的默认高度按手指算偏低，统一抬到 44px 触控底线。
+     只作用于弹窗内，顶栏那两个按钮仍然保持紧凑。 */
+  .gov-dialog .el-button {
+    min-height: 44px;
+  }
+}
+
+/* ── 弹窗的进出场时长 ──
+   Element 把 dialog 与 message-box 的淡入淡出写死成 .3s，进出各 300ms。
+   进场慢一点没人抱怨（是"打开"，本来就要有个交代），但**出场**这一下
+   发生在玩家已经点完按钮之后，玩家眼里那就是纯粹的延迟。
+
+   实测过：三个弹窗的关闭路径里没有任何 await，同步计算总量不到 0.1ms
+   （事件池扫描 0.0098ms、存档序列化 0.0051ms、整局重置 0.0057ms），
+   所以 300ms 里 99.97% 就是这段动画。压到 150ms——低于这个数，
+   淡出会变成"啪"地消失，反而像是画面闪了一下。
+
+   不用 !important：本文件排在 element-ui 之后，同特异性自然胜出。 */
+.dialog-fade-enter-active {
+  animation: dialog-fade-in 0.15s;
+}
+
+.dialog-fade-leave-active {
+  animation: dialog-fade-out 0.15s;
+}
+
+/* $confirm 的确认框走的是另一套动画，同样 300ms。
+   它属于同一条"点确定 → 关掉"的路径，一并压。 */
+.msgbox-fade-enter-active {
+  animation: msgbox-fade-in 0.15s;
+}
+
+.msgbox-fade-leave-active {
+  animation: msgbox-fade-out 0.15s;
+}
+
+/* 事件弹窗的皮肤。弹窗被 Element 挂到 body 下，组件里的 scoped 样式
+   够不着它，所以这层皮肤也统一收在这里，而不是留在 EventModal.vue 里
+   开一个全局 <style> 块——那样 Element 的样式就有了两个来源。 */
+.event-dialog {
+  background-color: var(--paper-card);
+  border-top: 3px solid var(--gov-red);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.event-dialog .el-dialog__header {
+  padding: 18px 20px 12px;
+  border-bottom: 1px dashed var(--gov-red-faint);
+}
+
+.event-dialog .el-dialog__body {
+  padding: 16px 20px 22px;
+}
+
+/* 事件标题是红头文件那一行"标题"，用体制红。
+   标题走了 slot（右侧要挂一个"本地档案"签），Element 就不再渲染它默认的
+   .el-dialog__title，样式得落在自己的 .event-title-text 上。 */
+.event-title-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.event-title-text {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--gov-red);
+}
+
+/* "本地档案"签。刻意做得极小、极淡：
+   它的作用是给事件一个来处（像卷宗右上角的归档章），不是提示玩家"这是本地数据"。
+   一旦做得显眼，每弹一次窗都在提醒玩家这是个程序，反而出戏。 */
+.event-local-tag {
+  flex-shrink: 0;
+  padding: 1px 7px;
+  border: 1px solid var(--line-warm);
+  border-radius: 0;
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: var(--ink-faint);
+  background-color: var(--paper-edge);
+}
+
+@media (max-width: 768px) {
+  /* 宽度是模板上的 width="620px"，行内 style，只有 !important 压得住 */
+  .event-dialog {
+    width: 90vw !important;
+    /* 弹窗关不掉，顶距必须留得少一些：15vh 在横屏手机上能把选项顶到屏幕外 */
+    margin-top: 6vh !important;
+  }
+
+  .event-dialog .el-dialog__header {
+    padding: 14px 14px 10px;
+  }
+
+  .event-dialog .el-dialog__body {
+    padding: 14px 14px 18px;
+    /* 长事件（立案审查那种）会比一屏高，给正文一个可滚的上限，
+       否则底部的选项按钮会被挤出可视区，而这个弹窗没有任何别的出口 */
+    max-height: 74vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .event-title-text {
+    font-size: 16px;
+  }
+
+  .event-dialog .el-button {
+    min-height: 44px;
+  }
+}
+
+/* ── 干部管理手册（规则说明）／关于这个项目的一些说明 ──
+   走的是与前两个皮肤同一套「红头文件」底子，只把纸色调得更黄一档：
+   手册是**发给新人的那本册子**，不是工作流程中的一个环节。
+   这里不复用 --paper-card，是因为手册要和结算画面的"光荣退休"皮肤
+   认成同一张纸，而结算画面的四个皮肤本来就自带了色值。
+
+   《关于我们》与手册共用这一套外壳：两者在顶栏上并排站着，
+   点开却是两张不同颜色的纸，玩家只会以为是两处没做完。
+   它的红头与正文排在自己组件里，只有外壳宽度这种"够不着 scoped"的
+   才留在全局——理由见下面窄屏那段。 */
+.rules-dialog,
+.about-dialog {
+  background-color: #fdf6e6;
+  border-top: 6px solid var(--gov-red);
+  border-radius: 2px;
+  box-shadow: 0 6px 26px rgba(61, 50, 41, 0.2);
+  padding: 0;
+  overflow: hidden;
+}
+
+.rules-dialog .el-dialog__header,
+.about-dialog .el-dialog__header {
+  padding: 0;
+}
+
+.rules-dialog .el-dialog__body,
+.about-dialog .el-dialog__body {
+  padding: 0;
+}
+
+@media (max-width: 768px) {
+  /* 宽度是模板上的 width="760px"，行内 style，同样只有 !important 压得住。
+     这一条**必须留在全局**：这两个 class 挂在 el-dialog 的内层元素上，
+     拿不到组件的 scope 属性，组件里的 scoped 样式够不着它们。
+     红头与正文的窄屏排版则写在组件自己的 scoped 样式里——
+     放这里会与那边的 scoped 规则同分（各 2 个选择器权重），
+     谁生效取决于打包顺序，是个不该赌的运气。 */
+  .rules-dialog,
+  .about-dialog {
+    width: 94vw !important;
+    margin-top: 4vh !important;
+  }
+}
+
+/* ═══════════════════════ 9. 通报 el-notification ═══════════════════════
+   给 el-notification 挂 custom-class="redhead-notice"。
+   和弹窗同理，通知也被 Element 挂到 body 下，scoped 样式够不着。
+
+   调离是全流程里唯一一次"你什么都没做就被挪走了"，所以它不能长成
+   一条普通的红字提示。这里做成公文的样子：顶上一道红杠（红头），
+   标题走宋体、加宽字距，正文用纸色底——一眼看上去像一份文件，
+   而不是一条系统消息。 */
+.el-notification {
+  background-color: var(--paper-card);
+  border: 1px solid var(--line-warm);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.el-notification__title {
+  color: var(--ink-title);
+}
+
+.el-notification__content {
+  color: var(--ink-sub);
+}
+
+.redhead-notice {
+  /* 米黄纸色，与结算画面的"光荣退休"皮肤、还有那本《干部管理手册》同源。
+     不用 --paper-card（近白）：季度通报是一条成篇的公文，不是一闪而过的
+     系统消息，纸色得看得出来是"一张纸贴在那儿"。 */
+  background-color: #fdf6e6;
+  border: 1px solid var(--gov-red-line);
+  border-top: 3px solid var(--gov-red);
+  border-radius: 0;
+  box-shadow: 0 4px 16px rgba(61, 50, 41, 0.12);
+}
+
+.redhead-notice .el-notification__title {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: var(--gov-red-dark);
+}
+
+.redhead-notice .el-notification__content {
+  font-size: 13px;
+  line-height: 1.9;
+  color: var(--ink);
+  text-align: justify;
+  /* 季度通报是**一条**通知装着好几个自然段，段间用 \n 分隔。
+     pre-line 才把 \n 兑现成换行；默认的 normal 会把它们全并成一行，
+     工资到账、资产风险、提任结果糊成一坨。 */
+  white-space: pre-line;
+}
+
+/* 公文不带图标。Element 的默认图标是亮色实心圆，
+   挂在红头旁边会把"文件"的观感拉回"系统提示"。
+   图标拿掉后，正文分组还留着 55px 的让位缩进，得一并收回，
+   否则整份通报会莫名其妙地右移半格。 */
+.redhead-notice .el-notification__icon {
+  display: none;
+}
+
+.redhead-notice .el-notification__group {
+  margin-left: 0;
+}
+
+.redhead-notice .el-notification__closeBtn {
+  color: var(--ink-faint);
+}
+
+.redhead-notice .el-notification__closeBtn:hover {
+  color: var(--gov-red);
+}
+
+/* ═══════════════ 10. 兜底：钉死 Element 的两抹默认色 ═══════════════
+   上面按组件清点过了，这一节针对的是**清点不到的部分**：
+   以后新加一个组件（复选框、开关、分页、气泡……），默认色就会从那里
+   冒出来。部位说不准，但颜色只有两个值——#409EFF（科技蓝）和
+   #67C23A（成功绿）。所以这里不按组件写，按"这两抹色可能出现的地方"写。
+
+   全用 !important，因为这一节的意义就是"无论如何都不许漏"。
+   已经在本文件里定过色的组件不受影响：!important 的胜出规则是同为
+   !important 时看特异性与顺序，而这里的选择器都比上面的更具体或更靠后。 */
+.el-checkbox__input.is-checked .el-checkbox__inner,
+.el-checkbox__input.is-indeterminate .el-checkbox__inner,
+.el-radio__input.is-checked .el-radio__inner,
+.el-switch.is-checked .el-switch__core {
+  background-color: var(--gov-red) !important;
+  border-color: var(--gov-red) !important;
+}
+
+.el-checkbox__input.is-checked + .el-checkbox__label,
+.el-radio__input.is-checked + .el-radio__label,
+.el-checkbox__inner:hover,
+.el-radio__inner:hover,
+.el-switch__core {
+  border-color: var(--gov-red) !important;
+}
+
+.el-checkbox__input.is-checked + .el-checkbox__label,
+.el-radio__input.is-checked + .el-radio__label {
+  color: var(--gov-red) !important;
+}
+
+.el-radio__inner::after {
+  background-color: #fff !important;
+}
+
+/* 链接 / 分页 / 面包屑：Element 把它们整体染蓝 */
+.el-link.el-link--primary,
+.el-pagination.is-background .el-pager li:not(.disabled).active,
+.el-pagination .el-pager li.active,
+.el-breadcrumb__inner a:hover {
+  color: var(--gov-red) !important;
+}
+
+.el-pagination.is-background .el-pager li:not(.disabled).active {
+  background-color: var(--gov-red) !important;
+}
+
+/* 焦点态：Element 的聚焦 halo 一律取消，只留边框变色 */
+.el-input__inner:focus,
+.el-textarea__inner:focus {
+  box-shadow: none !important;
+}
+
+.el-button:focus {
+  box-shadow: none !important;
+}
+
+/* 消息提示（$message）与确认框（$confirm）：
+   这两个在页面里没有对应样式文件，全靠这里兜住。 */
+.el-message,
+.el-message-box {
+  background-color: var(--paper-card);
+  border: 1px solid var(--line-warm);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.el-message-box__header {
+  border-bottom: 1px dashed var(--gov-red-faint);
+}
+
+.el-message-box__title {
+  color: var(--gov-red);
+  font-weight: 600;
+}
+
+.el-message-box__content {
+  color: var(--ink);
+}
+
+.el-message--success,
+.el-message--info,
+.el-message--warning {
+  background-color: var(--paper-edge) !important;
+  border-color: var(--line-warm) !important;
+}
+
+.el-message--success .el-message__content,
+.el-message--info .el-message__content,
+.el-message--warning .el-message__content,
+.el-message--success .el-message__icon,
+.el-message--info .el-message__icon,
+.el-message--warning .el-message__icon {
+  color: var(--gov-red) !important;
+}
+
+.el-message--error {
+  background-color: rgba(192, 57, 43, 0.09) !important;
+  border-color: var(--gov-red-line) !important;
+}
+
+.el-message--error .el-message__content,
+.el-message--error .el-message__icon {
+  color: var(--gov-red) !important;
+}
+
+/* 最后一道闸：所有 Element 根节点的圆角与投影清零。
+   放在文件末尾是因为它覆盖面最广，让上面按组件写的规则先落地。 */
+[class^="el-"],
+[class*=" el-"] {
+  border-radius: 0;
+}
+
+/* 唯一的两处例外：Element 里真的是"圆"的形状（进度环、开关滑块、
+   徽标的圆点），压成方的反而不对。 */
+.el-progress-circle__path,
+.el-progress-circle__track,
+.el-switch__core:after,
+.el-radio__inner,
+.el-checkbox__inner::after {
+  border-radius: 50%;
+}

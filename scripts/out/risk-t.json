@@ -1,0 +1,137 @@
+[
+  {
+    "id": "evt_common_t_letter_inquiry",
+    "title": "函询到案头",
+    "npcName": "省纪委 李处长",
+    "unitType": "通用",
+    "bands": [
+      "厅级"
+    ],
+    "theme": "risk",
+    "description": "深夜，机要室送来一份省纪委的函询通知书——就三年前某市政工程招投标、你表弟公司中标一事，要求你十个工作日内如实回复。措辞平平，只有一句「请按程序办」。你清楚，这份函一旦入了卷，就再没有收回的余地；更何况你上周刚在会上被点了名，这阵风的来头不小。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "如实说明，附上全部往来凭证",
+        "costAp": 2,
+        "effects": {
+          "risk": -20,
+          "authority": 5,
+          "mgmt": -8,
+          "energy": -12
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "托老关系打听来头，先拖一拖",
+        "costAp": 1,
+        "effects": {
+          "risk": 12,
+          "mgmt": 6,
+          "authority": -5,
+          "energy": -8
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "交秘书拟稿，避重就轻地回",
+        "costAp": 0,
+        "effects": {
+          "risk": 10,
+          "authority": -6,
+          "energy": -5
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_common_t_inspection_landing",
+    "title": "巡视组约谈",
+    "npcName": "常务副市长 老周",
+    "unitType": "通用",
+    "bands": [
+      "厅级"
+    ],
+    "theme": "risk",
+    "description": "巡视组进驻第三天，通知你下午单独谈话，谈的是你分管园区里那三百亩闲置土地。可你刚得到消息，举报材料是常务副市长老周递上去的——去年那块地本该给他引的项目，被你拦了下来。秘书问，要不要先去老周那里「沟通沟通」。你盯着墙上的产业规划图，明白这一谈，谈的是地，也是位子。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "向巡视组交底，把地的事讲透",
+        "costAp": 2,
+        "effects": {
+          "risk": -16,
+          "authority": 6,
+          "mgmt": -8,
+          "energy": -12
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "请老周吃个饭，让一步换个安生",
+        "costAp": 1,
+        "effects": {
+          "risk": 14,
+          "mgmt": 6,
+          "popularity": 6,
+          "authority": -6
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "只谈政策口径，个人的事不接",
+        "costAp": 0,
+        "effects": {
+          "risk": 10,
+          "mgmt": -4,
+          "authority": -3
+        }
+      }
+    ]
+  },
+  {
+    "id": "evt_common_t_night_banquet",
+    "title": "暗访组的镜头",
+    "npcName": "秘书 小郑",
+    "unitType": "通用",
+    "bands": [
+      "厅级"
+    ],
+    "theme": "risk",
+    "description": "周五晚，你陪外地投资商在定点酒店吃饭，包厢是对方订的，酒是对方带的。散席时，秘书小郑压低声音：门口有两张生面孔，像是纪委暗访组的，正拿镜头对着车牌拍照。投资商还在里面等着签那份框架协议。你想起上周刚传达的违规吃喝专项整治，后背一层汗。",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "当场向暗访组说明，主动登记",
+        "costAp": 2,
+        "effects": {
+          "risk": -14,
+          "authority": 5,
+          "mgmt": -8,
+          "popularity": -5
+        }
+      },
+      {
+        "id": "opt_b",
+        "text": "让小郑去协调一下，把痕迹清了",
+        "costAp": 1,
+        "effects": {
+          "risk": 16,
+          "popularity": 5,
+          "mgmt": 5,
+          "authority": -8
+        }
+      },
+      {
+        "id": "opt_c",
+        "text": "不多说，照常离场，回头再说",
+        "costAp": 0,
+        "effects": {
+          "risk": 10,
+          "mgmt": -5,
+          "authority": -4
+        }
+      }
+    ]
+  }
+]
