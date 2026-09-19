@@ -1064,7 +1064,9 @@ export function advanceQuarter(state) {
       // 后面所有事件的随机序列，而且没有任何好处。
       promotion = null
       const left = (Number(state.gameStatus.auditHoldUntil) || 0) - absQuarter
-      notes.push(`廉政审查的结论还没销，${(left / 4).toFixed(1)} 年内不列入提任考虑。`)
+      // 挂起期与任期共用 formatTenure：都是"还剩几个季度"，没有理由两套写法。
+      // 旧写法 (left / 4).toFixed(1) 会把 3 个季度写成"0.8 年"，6 个季度写成"1.5 年"。
+      notes.push(`廉政审查的结论还没销，${formatTenure(left)}内不列入提任考虑。`)
       verdict.verdict = PROMOTION_VERDICT.AUDIT_HELD
       verdict.reason = AUDIT_FAIL_NOTE
     } else if (state.player.hasIllicitRecord && !rollPromotionAudit(state)) {
