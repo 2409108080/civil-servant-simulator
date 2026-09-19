@@ -719,8 +719,8 @@ export const ENDINGS = {
     tone: 'error',
     // 中段插一句忏悔语录。**这条路没有 verdictExcuse**——
     // 玩家是被风险顶出去的，没有经过"写说明材料"那一屏，也就没有亲口说过什么，
-    // 所以他配到的是五类里**随机**的一条（见 investigation.js 的 pickConfession
-    // 第 3 条规则）。这一条正好补上了那份决定书里问不出来的话：
+    // 所以他配到的是随机池里等概率的一条（见 investigation.js 的
+    // RANDOM_ENTRIES）。这一条正好补上了那份决定书里问不出来的话：
     // 他辩解过什么、组织上又是怎么驳回去的。
     reason: (state) =>
       '廉政风险触顶，被纪检监察机关立案审查。'
