@@ -92,11 +92,12 @@
 import { RESOURCE_LABELS } from '@/constants/gameConfig'
 import {
   AUDIT_FAIL_NOTE,
-  MIN_TENURE_YEARS,
+  MIN_TENURE_QUARTERS,
   PROMOTION_GATES,
   PROMOTION_VERDICT,
   auditPassOddsOf,
   evaluatePromotion,
+  formatTenure,
   requirementOf
 } from '@/constants/promotion'
 
@@ -188,9 +189,10 @@ export default {
 
     tenureNote() {
       const short = this.verdict.tenureShort || 0
-      const required = MIN_TENURE_YEARS
-      return `任现职 ${(this.tenureQuarters / 4).toFixed(1)} 年，满 ${required} 年才列入提任考虑`
-        + `（还差 ${(short / 4).toFixed(1)} 年）。`
+      // 三个数都过 formatTenure。以前是 /4 加 toFixed(1)，会写出"还差 1.0 年"
+      // 这种念不出来的数；年限门槛也直接取季度常量，不另留一个"年"版本
+      return `任现职 ${formatTenure(this.tenureQuarters)}，满 ${formatTenure(MIN_TENURE_QUARTERS)}才列入提任考虑`
+        + `（还差 ${formatTenure(short)}）。`
     },
 
     riskAlertType() {

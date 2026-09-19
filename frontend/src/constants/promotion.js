@@ -120,8 +120,33 @@ export const RISK_INTERVIEW_MARGIN = 15
  * 取 2.5 年在目标区间 45~55 的中位偏下，留一点余量。
  */
 export const MIN_TENURE_QUARTERS = 10
-/** 同上，换算成年，只用于文案 */
-export const MIN_TENURE_YEARS = MIN_TENURE_QUARTERS / 4
+
+/**
+ * 任期（季度数）→ 年月文案。
+ *
+ * **凡是要给玩家看"任现职多久"的地方都走它**，理由与 formatMoney 一样：
+ * 同一个数各写各的，改一处必漏一处。这条不是假设——原先就有三个地方
+ * 各写各的，左栏提任面板和季末通报写成 `(q / 4).toFixed(1)` 年，
+ * 结算画面的履历表却还写着"X 个季度"，同一个任期在两屏上三个说法。
+ *
+ * 为什么不用带小数的"年"：`toFixed(1)` 会写出 "0.5 年""1.0 年""2.5 年"
+ * 这种念不出来的数。体制内讲任期论年月，半年就是六个月，
+ * 没有"零点五年"这个说法。
+ *
+ * 一季三个月、一年四季，整数换算，没有余数问题：
+ *   formatTenure(0)  === '0个月'     ← 刚上任那一季，不写"0年0个月"
+ *   formatTenure(1)  === '3个月'
+ *   formatTenure(4)  === '1年'
+ *   formatTenure(10) === '2年6个月'  ← 即 MIN_TENURE_QUARTERS，提任年限
+ */
+export function formatTenure(quarters) {
+  // 负数与脏存档一律按 0 处理：这是纯展示函数，宁可显示出错也不能返回 NaN
+  const q = Math.max(0, Math.floor(Number(quarters) || 0))
+  const years = Math.floor(q / 4)
+  const months = (q % 4) * 3
+  if (!years) return `${months}个月`
+  return months ? `${years}年${months}个月` : `${years}年`
+}
 
 export const AUDIT_BASE_PASS = 0.8
 export const AUDIT_PENALTY_PER_MILLION = 0.05

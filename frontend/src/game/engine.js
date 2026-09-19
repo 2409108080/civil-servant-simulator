@@ -27,10 +27,11 @@ import {
   AUDIT_FAIL_NOTE,
   AUDIT_HOLD_QUARTERS,
   LEVEL_LADDER,
-  MIN_TENURE_YEARS,
+  MIN_TENURE_QUARTERS,
   PROMOTION_VERDICT,
   auditPassOddsOf,
   evaluatePromotion,
+  formatTenure,
   nextLevelOf,
   prevLevelOf
 } from '@/constants/promotion'
@@ -1105,8 +1106,9 @@ export function advanceQuarter(state) {
     // 四项都够了，只是椅子没坐热。**必须和"资历尚浅"分开说**：
     // 这两句对玩家的含义完全不同——前者是"再攒攒"，后者是"你已经够了，等着"。
     // 用同一句兜底，一个四项全达标的人会以为是自己属性不够，继续去堆已经溢出的能力。
+    // 与左栏提任面板、结算画面同一句"任现职…"，共用一个 formatTenure
     notes.push(
-      `任现职 ${(tenureQuarters / 4).toFixed(1)} 年，未满 ${MIN_TENURE_YEARS} 年，`
+      `任现职 ${formatTenure(tenureQuarters)}，未满 ${formatTenure(MIN_TENURE_QUARTERS)}，`
       + `本次不列入提任考虑。`
     )
   } else if (
