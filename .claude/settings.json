@@ -1,8 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(PYTHONIOENCODING=utf-8 python -c ' *)",
-      "Bash(git -C /d/code_game commit -F \"C:/Users/ADMINI~1/AppData/Local/Temp/gwy_commit_msg4.txt\")"
-    ]
-  }
-}

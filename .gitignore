@@ -21,5 +21,12 @@ Thumbs.db
 .idea/
 .vscode/
 
+# ══════════ 本机工具状态 ══════════
+# .claude/settings.json 是 Claude Code 在本机自动攒出来的权限记录，
+# 里面写的是本机路径，对别人没有意义（曾经被 git add -A 误带进去过一次）。
+# 忽略整个目录：将来若真要共享项目级配置（commands/、agents/），
+# 用 git add -f 单独放行即可。
+.claude/
+
 # ══════════ 运行产物 ══════════
 *.log
