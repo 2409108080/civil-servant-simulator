@@ -34,7 +34,7 @@
  *             **值必须是 gameStatus 上真有的字段名**，写错不报错、只静默失效，
  *             所以自检会拿初始档案比对（见 validatePool）。
  *
- * 选项上的本地标签（同样不进网络，由 stripLocalMeta 剥掉）：
+ * 选项上的本地标签（只给引擎看，不出这个页面）：
  *   costMoney  花多少家产。引擎会真扣，也是这个选项的置灰门槛
  *   gainMoney  进多少家产
  *   requires   附加门槛，如 { mgmt: 10 }。只判"够不够"，不负责扣
@@ -62,10 +62,11 @@
  *              此时 minOdds 也要一起写小，否则默认下限 15% 会把它抬上去。
  *              可选文案 okText / failText 交代成败的说法。
  *
- * 标签为什么不干脆塞进契约里：backend/models.py 的 _Base 是 extra="forbid"，
- * GameEvent 多一个字段就会 422。而这几项纯本地，后端既不用也不该知道。
- * 于是标签留在事件上（可读性最好），由 api/event.js 的 stripLocalMeta()
- * 在上报前剥掉——出口处收口，比在入口处到处补字段可靠。
+ * 标签为什么不干脆塞进契约里：这几项纯本地。事件原本要上报给后端，
+ * 而 backend/models.py 的 _Base 是 extra="forbid"，多一个字段就 422，
+ * 所以标签只留在事件上（可读性最好），出口处统一剥掉。
+ * 1.0.0 起整局都在浏览器里跑，上报那一步没了，剥的动作也就没有了；
+ * 但这条规矩留着——标签仍然是"事件对象上的私事"，不归契约管。
  */
 
 import {
@@ -419,7 +420,7 @@ export const SEED_EVENTS = [
   // 但这条出口是有限的——钱要一季一季地攒。
   //
   // costMoney 与 gainMoney 是**本地字段**：钱不在那八项资源里，
-  // 塞进 effects 会被后端的 RESOURCE_KEYS 校验挡下（详见 api/event.js）。
+  // 塞进 effects 会被资源校验挡下（后端那份见 backend/models.py 的 RESOURCE_KEYS）。
   {
     id: 'evt_seed_common_k_subsidy_refund',
     title: '退钱的通知',

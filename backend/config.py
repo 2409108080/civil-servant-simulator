@@ -53,8 +53,10 @@ class Settings:
 
         # AI 调用参数
         # 超时与上限是一对，必须一起看（下面 max_tokens 的注释解释了为什么）。
-        # 这个值要**明显小于前端**（frontend/src/api/event.js 的 REQUEST_TIMEOUT）：
-        # 后端超时会降级成预置事件（还能玩），前端超时只会中断请求报错。
+        # 原先这里写着"必须明显小于前端（api/event.js 的 REQUEST_TIMEOUT）"：
+        # 后端超时会降级成预置事件（还能玩），前端超时只会中断请求报错，
+        # 所以要让后端先响。1.0.0 起前端一个请求都不发，这条约束没有了；
+        # 但 /api/event 哪天重新接到前端上，谁先响的问题会立刻回来。
         self.request_timeout = _get_float("DEEPSEEK_TIMEOUT", 40.0)
         self.temperature = _get_float("DEEPSEEK_TEMPERATURE", 1.0)
         # ⚠️ 这个模型的 reasoning_content 与正文**共用** max_tokens，
@@ -84,11 +86,11 @@ class Settings:
         # （约 600 token、实测 8 秒）定的。卷子要写六倍多的字，
         # 实测 37～48 秒（截断的那些反而更久，因为一路写满到上限），
         # 尾部的抖动轻易就顶穿 25 秒，表现为 APITimeoutError 全线降级。
-        # 这个值必须**明显小于前端的 110 秒**（frontend/src/api/exam.js）。
-        # 两边原来都是 90，谁先到点是不确定的；而后端超时会降级成预置题库
-        # （还能玩），前端超时只会甩一张"命题失败"错误页（只能重试）。
-        # 同一个故障点，谁先响决定玩家是"拿到一套备用卷"还是"看到报错"，
-        # 所以要让后端先响。留 1.5 倍余量：实测峰值 48 秒。
+        # 原先这个值还必须**明显小于前端的 110 秒**（api/exam.js，已删）：
+        # 两边都是 90 时谁先到点不确定，而后端超时会降级成预置题库（还能玩），
+        # 前端超时只会甩一张"命题失败"错误页（只能重试）。同一个故障点，
+        # 谁先响决定调用方是"拿到一套备用卷"还是"看到报错"，所以要让后端先响。
+        # 前端不调了，这条对着走了；留 1.5 倍余量是因为实测峰值 48 秒。
         self.exam_generate_timeout = _get_float("EXAM_GENERATE_TIMEOUT", 75.0)
         self.exam_grade_timeout = _get_float("EXAM_GRADE_TIMEOUT", 60.0)
         # DeepSeek 支持 JSON 输出模式；置 false 则只靠提示词约束 + 服务端清洗兜底

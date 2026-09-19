@@ -4,9 +4,9 @@
  * 单独成文件而不是塞进 Exam.vue，是因为它改的是**游戏档案**，
  * 与界面无关：换一个界面（或将来做「重考」功能）也该走同一个函数。
  *
- * 单位类型是硬约束：后端分档只可能给出 model.UNIT_TYPES 里的四个值之一，
- * 但前端不能替后端担保，这里挡一道，出现意料之外的值就整条不落库，
- * 免得把脏 unitType 写进存档，让后续每一次 /api/event 都 422。
+ * 单位类型是硬约束：分档只可能给出 UNIT_TYPES 里的四个值之一，
+ * 但这里不替考务那边担保，仍旧挡一道，出现意料之外的值就整条不落库——
+ * 一个脏 unitType 进了存档，往后每个读它的地方都得各自防一次。
  */
 
 import { UNIT_TYPES, RESOURCE_LIMITS } from '@/constants/gameConfig'
@@ -25,7 +25,7 @@ function clampResource(key, value) {
  * 把录用结果写进游戏状态（就地修改）。
  *
  * @param {Object} state  组件 $data（含 player / resources）
- * @param {Object} result /api/exam/evaluate 返回的 result
+ * @param {Object} result evaluatePaper()（见 game/examPaper.js）出的成绩单
  * @returns {{ok: boolean, message: string, applied: Object}}
  */
 export function applyExamResult(state, result) {
@@ -37,7 +37,7 @@ export function applyExamResult(state, result) {
   if (!UNIT_TYPES.includes(unitType)) {
     return {
       ok: false,
-      message: `后端返回的单位类型「${unitType}」不在合法范围内，已拒绝写入档案。`,
+      message: `成绩单上的单位类型「${unitType}」不在合法范围内，已拒绝写入档案。`,
       applied: {}
     }
   }
@@ -46,12 +46,12 @@ export function applyExamResult(state, result) {
   state.player.unitType = unitType
   state.player.unit = result.unit || state.player.unit
   state.player.position = result.position || state.player.position
-  // 成绩单的 score 后端不取整（理由见 services/exam.py），
-  // 而契约里 player.examScore 是**整数**（models.py 的 PlayerInfo.exam_score: int），
-  // 类型不符会让整个请求被 Pydantic 判 422，不是四舍五入的问题。
+  // 成绩单的 score **不取整**（理由见 examPaper.js 里 buildResult 那段：
+  // 取整会把 59.5 抬进上一档），而档案里 player.examScore 是个**记录用的整数**
+  // （后端 models.py 的 PlayerInfo.exam_score: int 也这么写着）。
   //
-  // 这里取整只影响档案里这个记录用的数字。**去哪个单位是后端按原始分卡
-  // 80/60/40 三条红线定的**，结果早就定好随成绩单一起下发了，
+  // 这里取整只影响档案里存下来的这个数字。**去哪个单位是按原始分卡
+  // 80/60/40 三条红线定的**，早在成绩单出来时就定好了，
   // 不经过这里，所以不会被这次取整改变。
   //
   // （每题 20 分之后分数只会是 10 的倍数，本来就取不到小数——

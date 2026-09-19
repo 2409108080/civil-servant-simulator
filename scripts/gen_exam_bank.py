@@ -53,6 +53,19 @@ OUT_DIR = os.path.join(_HERE, "out")
 BANK_DIR = os.path.join(_BACKEND, "data")
 BANK_FILE = os.path.join(BANK_DIR, "questions.json")
 
+# ══════════════════════════════════════════════════════════════════
+# 题库有两份，**必须同源**
+# ══════════════════════════════════════════════════════════════════
+# 1.0.0 之后玩家路径走的是前端那一份：考公整条链子搬进了浏览器
+# （frontend/src/game/examPaper.js），线上发的是静态站，后端根本不在链子上。
+# 后端那份留着给本地开发与 /api/exam/* 手动调用，也当"权威副本"。
+#
+# 两份由**同一个函数、同一次 dump** 产出，所以不会各写各的；
+# 但人手改一份就会漂移，因此这里一次写两处之外，
+# 探针 probe_exam_local.mjs 还会**逐字节**比对两份文件，谁改漏了都会红。
+FRONT_BANK_DIR = os.path.normpath(os.path.join(_HERE, "..", "frontend", "src", "mock"))
+FRONT_BANK_FILE = os.path.join(FRONT_BANK_DIR, "questions.json")
+
 # 每题四个选项，id 由序号重排，不采信模型自报的（与 gen_events.py 同理）
 OPT_IDS = ("opt_a", "opt_b", "opt_c", "opt_d")
 
@@ -469,17 +482,23 @@ def emit(questions):
             "source": q.get("source", "ai"),
         })
 
-    if not os.path.isdir(BANK_DIR):
-        os.makedirs(BANK_DIR)
+    # dump 一次，写两处（理由见文件头那一段）。两次调用参数完全相同，
+    # 所以两份的 bytes 必然一样——探针里那条"字节相同"才立得住。
+    #
+    # 别改成 newline="\n"：本文件在 Windows 上生成，用的是 json.dump 的默认换行，
+    # 现存的两份都是 CRLF。改成显式 LF 会让下一次重跑产出整文件级的 diff，
+    # 而那份 diff 里没有一个字的内容变化。
+    payload_obj = {"version": 1, "counts": counters, "questions": payload}
+    for directory, path in ((BANK_DIR, BANK_FILE), (FRONT_BANK_DIR, FRONT_BANK_FILE)):
+        if not os.path.isdir(directory):
+            os.makedirs(directory)
+        with open(path, "w", encoding="utf-8") as fh:
+            json.dump(payload_obj, fh, ensure_ascii=False, indent=2)
 
-    with open(BANK_FILE, "w", encoding="utf-8") as fh:
-        json.dump(
-            {"version": 1, "counts": counters, "questions": payload},
-            fh, ensure_ascii=False, indent=2,
-        )
-
-    print("\n已写出 {}（{} 道，{} KB）".format(
-        BANK_FILE, len(payload), os.path.getsize(BANK_FILE) // 1024))
+    print("\n已写出（{} 道，{} KB，两份内容一致）：".format(
+        len(payload), os.path.getsize(BANK_FILE) // 1024))
+    print("  后端 {}", BANK_FILE)
+    print("  前端 {}  ← 玩家路径读的是这一份".format(FRONT_BANK_FILE))
     print("  题量分布：{}".format(
         "，".join("{} {} 道".format(EXAM_TYPE_LABELS[t], n) for t, n in counters.items())))
 

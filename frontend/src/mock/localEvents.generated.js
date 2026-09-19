@@ -8,7 +8,7 @@
  * 字段分两拨：
  *   契约字段 id / title / description / options  —— 与 backend/models.py 的 GameEvent 一致
  *   本地标签 npcName / unitType / bands / theme   —— 只服务于本地抽取，
- *       上报后端前会被 api/event.js 的 stripLocalMeta() 剥掉，不进网络
+ *       只服务于本地抽取，不出这个页面（1.0.0 起整局都在浏览器里跑）
  *
  * 共 107 条，覆盖 4 单位 × 4 职级档 + 廉政/健康两类强制题材 + 通用兜底。
  * @risk-damped: v1（正向风险已按 ×0.6 下调，勿重复运行 damp_risk.mjs）

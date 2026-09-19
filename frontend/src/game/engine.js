@@ -498,9 +498,8 @@ export function applyOption(state, option) {
   // 不会因为过了一年就重新寄来一份。
   //
   // 写在冷却**前面**，且写冷却时要把它排除掉：一次性事件已经永久退池，
-  // 再给它记一条冷却纯属多余，而且是有害的多余——那张表会作为"避重清单"
-  // 上报给后端（见 api/event.js 的 eventCooldown），里面躺着一条再也抽不到的
-  // 事件 id，读到的人只会以为它还会回来。
+  // 再给它记一条冷却纯属多余，而且是有害的多余——那张表是"避重清单"，
+  // 里面躺着一条再也抽不到的事件 id，读到的人只会以为它还会回来。
   const retired = Boolean(doneEvt && doneEvt.onceFlag)
   if (retired) state.gameStatus[doneEvt.onceFlag] = true
 

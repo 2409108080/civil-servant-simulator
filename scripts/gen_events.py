@@ -93,7 +93,7 @@ BAND_SLUG = {"科级": "k", "处级": "c", "厅级": "t", "省部级": "s", "通
 
 # 事件对象允许出现的键，多一个少一个都算不合格。
 # 前四个是 backend/models.py 的 GameEvent 契约；后三个是**纯本地标签**，
-# 只服务于抽取，上报后端前会被 api/event.js 剥掉（见该文件的 stripLocalMeta）。
+# 只服务于本地抽取，不出这个页面（1.0.0 起整局都在浏览器里跑，没有上报这一步）。
 CONTRACT_KEYS = ("id", "title", "description", "options")
 LOCAL_KEYS = ("npcName", "unitType", "bands", "theme")
 EVENT_KEYS = ("id", "title", "npcName", "unitType", "bands", "theme", "description", "options")
@@ -554,7 +554,7 @@ HEADER = '''/**
  * 字段分两拨：
  *   契约字段 id / title / description / options  —— 与 backend/models.py 的 GameEvent 一致
  *   本地标签 npcName / unitType / bands / theme   —— 只服务于本地抽取，
- *       上报后端前会被 api/event.js 的 stripLocalMeta() 剥掉，不进网络
+ *       只服务于本地抽取，不出这个页面（1.0.0 起整局都在浏览器里跑）
  *
  * 共 {count} 条，覆盖 4 单位 × 4 职级档 + 廉政/健康两类强制题材 + 通用兜底。
  */

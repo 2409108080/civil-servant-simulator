@@ -1,17 +1,20 @@
 <template>
   <div class="exam-page gov-paper-bg">
-    <!-- 发卷。题库固化在后端，这是毫秒级的一次往返，这一屏基本看不见。
-         留着不是为了遮盖等待（等待已经没有了），而是后端没起时有个明确的落点，
-         否则玩家看到的是一片白屏，不知道是自己点错了还是程序坏了。 -->
+    <!-- 发卷。题库跟着页面一起加载，组卷是一次纯计算，这一屏现在看不见了。
+         留着它是因为状态机得有个起点：loadPaper() 里任何一步抛错都落在这，
+         渲染成下面那张错误卡片，而不是一片白屏。 -->
     <el-card v-if="phase === 'loading'" class="gov-card gov-card--primary center-card" shadow="never">
       <p class="center-text">正在发卷……</p>
     </el-card>
 
-    <!-- 开考失败。本地题库在后端，读到不题库只有一种可能：后端没起来 -->
+    <!-- 开考失败。题库在页面里，组卷不依赖任何外部服务，
+         所以走到这一屏只可能是页面资源没下全（弱网、缓存半截）——
+         这是刷新一下就能好的那类故障，所以这里留着"重新开考"。 -->
     <el-card v-else-if="phase === 'error'" class="gov-card gov-card--primary center-card" shadow="never">
       <p class="center-text error">{{ errorMessage }}</p>
       <p class="center-hint">
-        试卷与题库都在后端，请确认后端已启动（<code>uvicorn main:app --reload</code>）后重试。
+        试卷与题库都随页面一起加载，不需要联网。出现这一屏多半是页面没下全，
+        刷新一下通常就好。
       </p>
       <el-button class="gov-btn" @click="loadPaper">重新开考</el-button>
     </el-card>
@@ -52,7 +55,7 @@
       <p class="paper-foot">点击选项即作答，不可回退修改。</p>
     </el-card>
 
-    <!-- 阅卷中。判档查的是题库里写好的答案键，同样是毫秒级 -->
+    <!-- 阅卷中。判档查的是题库里写好的答案键，也是一次纯计算，同样看不见 -->
     <el-card v-else-if="phase === 'submitting'" class="gov-card gov-card--primary center-card" shadow="never">
       <p class="center-text">正在阅卷……</p>
     </el-card>
@@ -178,15 +181,11 @@
 
 <script>
 import gameState from '@/mixins/gameState'
-import { fetchExamQuestions, submitExam } from '@/api/exam'
+import { EXAM_TYPE_LABELS, evaluatePaper, generateExamPaper } from '@/game/examPaper'
 import { applyExamResult } from '@/game/exam'
 import { RESOURCE_LABELS } from '@/constants/gameConfig'
 import { formatMoney } from '@/constants/money'
 import { toast } from '@/utils/notice'
-
-// 题型中文名的展示兜底。正常情况用后端返回的 typeLabel，
-// 这里只在后端漏字段时保证界面不出现 undefined。
-const TYPE_LABELS = { logic: '行测逻辑', eq: '职场情商', field: '基层对策' }
 
 export default {
   name: 'Exam',
@@ -215,7 +214,7 @@ export default {
       const q = this.questions[this.index] || {}
       return {
         ...q,
-        typeLabel: TYPE_LABELS[q.type] || '试题'
+        typeLabel: EXAM_TYPE_LABELS[q.type] || '试题'
       }
     },
 
@@ -225,7 +224,7 @@ export default {
     },
 
     /**
-     * 成绩显示。后端不再取整，原始分带小数下发；
+     * 成绩显示。阅卷不再取整，原始分带小数下发；
      * 整数就写整数、带小数才补一位（85 / 84.5），不写"85.0"这种多余的零。
      * 关键是**不在这里做任何舍入**——舍入会让 84.5 看上去像 85，
      * 而它去的确实是 60 分档的单位，显示和实际对不上就成了"骗人"。
@@ -261,13 +260,13 @@ export default {
   },
 
   methods: {
-    async loadPaper() {
+    loadPaper() {
       this.phase = 'loading'
       this.errorMessage = ''
       try {
-        const { questions } = await fetchExamQuestions(this.player.name)
+        const { questions } = generateExamPaper()
         if (!questions.length) {
-          throw new Error('后端未返回任何题目')
+          throw new Error('没有取到任何题目')
         }
         this.questions = questions
         this.answers = {}
@@ -312,12 +311,12 @@ export default {
       }, 160)
     },
 
-    async onSubmit() {
+    onSubmit() {
       this.phase = 'submitting'
       try {
-        const { result } = await submitExam(this.questions, this.answers, this.player.name)
+        const { result } = evaluatePaper(this.questions, this.answers)
         if (!result) {
-          throw new Error('后端未返回成绩单')
+          throw new Error('没有取到成绩单')
         }
         this.result = result
         // 默认展开没拿满分的题——玩家最想看的就是这几题为什么扣分
