@@ -142,7 +142,6 @@
       :player="player"
       :resources="resources"
       :game-status="gameStatus"
-      :tenure-quarters="tenureQuarters"
       @restart="onRestartFromReport"
     />
 

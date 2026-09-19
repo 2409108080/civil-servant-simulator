@@ -28,9 +28,6 @@
             <div class="cell">
               <dt>年龄</dt><dd>{{ player.age }} 岁</dd>
             </div>
-            <div class="cell">
-              <dt>任期</dt><dd>任现职 {{ tenureText }}</dd>
-            </div>
           </dl>
         </section>
 
@@ -125,7 +122,6 @@
 import { ENDINGS, absQuarterOf, parseQuarter } from '@/game/engine'
 import { RESOURCE_LABELS } from '@/constants/gameConfig'
 import { formatMoney } from '@/constants/money'
-import { formatTenure } from '@/constants/promotion'
 import { totalAssetValue } from '@/game/wealth'
 
 /**
@@ -225,9 +221,7 @@ export default {
   props: {
     player: { type: Object, required: true },
     resources: { type: Object, required: true },
-    gameStatus: { type: Object, required: true },
-    /** 任现职的季度数。由 GameMain 算好传进来，组件里不重算 */
-    tenureQuarters: { type: Number, default: 0 }
+    gameStatus: { type: Object, required: true }
   },
 
   data() {
@@ -239,15 +233,6 @@ export default {
     /** 姓名缺省时不能出现「关于  同志」中间空一块 */
     displayName() {
       return this.player.name || '某'
-    },
-
-    /**
-     * 任现职时长（履历表那一格）。
-     * 走 formatTenure，与左栏提任面板的"任现职…"是同一个函数——
-     * 档案上的任现职和面板上的任现职，本来就必须是同一句话。
-     */
-    tenureText() {
-      return formatTenure(this.tenureQuarters)
     },
 
     /**
